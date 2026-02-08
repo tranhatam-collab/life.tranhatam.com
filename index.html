@@ -1,40 +1,39 @@
-<!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<!doctype html>
+<html lang="vi" data-lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ================== SEO Core ================== -->
-  <title>Life Integrity Systems – Ghi nhận & Bảo toàn Tính toàn vẹn Dữ liệu Số (Local-first, Không Theo dõi)</title>
-  <meta name="description" content="Hệ thống local-first giúp cá nhân, freelancer, gia đình và tổ chức nhỏ ghi nhận sự kiện, tạo bằng chứng có hash kiểm tra tính toàn vẹn, lưu trữ cục bộ, không theo dõi, không analytics." />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Life Integrity Systems" />
+  <title>Life Integrity Systems - Bảo toàn tính toàn vẹn và liên tục dữ liệu số</title>
+  <meta name="description" content="Hệ thống local-first, privacy-first để ghi nhận, kiểm tra tính toàn vẹn, xuất gói dữ liệu. Không analytics. Không tracker. Một file tĩnh." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
 
   <link rel="canonical" href="https://lifeintegrity.systems/" />
-
-  <!-- Multilingual -->
   <link rel="alternate" hreflang="vi" href="https://lifeintegrity.systems/?lang=vi" />
   <link rel="alternate" hreflang="en" href="https://lifeintegrity.systems/?lang=en" />
   <link rel="alternate" hreflang="ko" href="https://lifeintegrity.systems/?lang=ko" />
   <link rel="alternate" hreflang="ja" href="https://lifeintegrity.systems/?lang=ja" />
   <link rel="alternate" hreflang="x-default" href="https://lifeintegrity.systems/" />
 
-  <!-- Open Graph & Twitter -->
-  <meta property="og:title" content="Life Integrity Systems – Bảo toàn tính toàn vẹn dữ liệu số" />
-  <meta property="og:description" content="Công cụ local-first, privacy-first giúp ghi nhận sự kiện, tạo hash kiểm tra tính toàn vẹn và xuất gói dữ liệu an toàn. Không theo dõi, không analytics." />
+  <meta name="theme-color" content="#fbfbfc" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Life Integrity Systems" />
+  <meta property="og:description" content="Local-first, privacy-first để ghi nhận và kiểm tra tính toàn vẹn dữ liệu số. Không theo dõi. Không analytics." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lifeintegrity.systems/" />
   <meta property="og:image" content="https://lifeintegrity.systems/og.png" />
-  <meta property="og:image:alt" content="Life Integrity Systems - Ghi nhận bằng chứng số cục bộ" />
+  <meta property="og:image:alt" content="Life Integrity Systems - Local-first integrity records" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Life Integrity Systems" />
+  <meta name="twitter:description" content="Ghi nhận, kiểm tra tính toàn vẹn, lưu cục bộ và xuất gói dữ liệu. Không theo dõi." />
+  <meta name="twitter:image" content="https://lifeintegrity.systems/og.png" />
 
-  <!-- Theme & Favicon -->
-  <meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <!-- JSON-LD (mở rộng) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,272 +43,1577 @@
         "@id": "https://lifeintegrity.systems/#org",
         "name": "Life Integrity Systems",
         "url": "https://lifeintegrity.systems/",
-        "logo": "https://lifeintegrity.systems/og.png",
-        "description": "Công cụ local-first giúp ghi nhận, bảo toàn tính toàn vẹn và liên tục dữ liệu số mà không theo dõi người dùng."
+        "description": "A local-first, privacy-first system for maintaining integrity and continuity in digital life.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lifeintegrity.systems/og.png"
+        }
       },
       {
         "@type": "WebSite",
         "@id": "https://lifeintegrity.systems/#website",
         "url": "https://lifeintegrity.systems/",
         "name": "Life Integrity Systems",
-        "publisher": { "@id": "https://lifeintegrity.systems/#org" },
-        "inLanguage": ["vi", "en", "ko", "ja"]
+        "inLanguage": ["vi","en","ko","ja"],
+        "publisher": { "@id": "https://lifeintegrity.systems/#org" }
       },
       {
         "@type": "WebPage",
         "@id": "https://lifeintegrity.systems/#webpage",
         "url": "https://lifeintegrity.systems/",
-        "name": "Life Integrity Systems – Bảo toàn tính toàn vẹn dữ liệu số",
+        "name": "Life Integrity Systems - Bảo toàn tính toàn vẹn và liên tục dữ liệu số",
         "isPartOf": { "@id": "https://lifeintegrity.systems/#website" },
-        "description": "Hệ thống giúp ghi nhận sự kiện số, tạo hash SHA-256 kiểm tra tính toàn vẹn, lưu cục bộ trong trình duyệt.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Trang chủ",
-            "item": "https://lifeintegrity.systems/"
-          }]
-        }
+        "inLanguage": "vi",
+        "about": [
+          { "@type": "Thing", "name": "Digital integrity" },
+          { "@type": "Thing", "name": "Local-first storage" },
+          { "@type": "Thing", "name": "Privacy-first design" }
+        ]
       },
       {
         "@type": "FAQPage",
+        "@id": "https://lifeintegrity.systems/#faq",
+        "isPartOf": { "@id": "https://lifeintegrity.systems/#webpage" },
         "mainEntity": [
-          {"@type":"Question","name":"Life Integrity Systems có lưu dữ liệu lên máy chủ không?","acceptedAnswer":{"@type":"Answer","text":"Không. Dữ liệu được lưu hoàn toàn cục bộ trong trình duyệt (IndexedDB/LocalStorage). Không có server, không tự động gửi dữ liệu."}},
-          {"@type":"Question","name":"Hash SHA-256 dùng để làm gì?","acceptedAnswer":{"@type":"Answer","text":"Hash giúp bạn kiểm tra xem gói JSON xuất ra có bị chỉnh sửa sau này hay không. Nếu nội dung thay đổi → hash sẽ khác."}},
-          {"@type":"Question","name":"Nếu xóa trình duyệt hoặc đổi máy thì sao?","acceptedAnswer":{"@type":"Answer","text":"Dữ liệu cục bộ sẽ mất. Vì vậy bạn cần xuất file JSON định kỳ để sao lưu ở nơi bạn kiểm soát (USB, ổ cứng, cloud cá nhân)."}},
-          {"@type":"Question","name":"Trang này có dùng cookie hoặc analytics không?","acceptedAnswer":{"@type":"Answer","text":"Không. Không có Google Analytics, không pixel, không tracker, không quảng cáo. Chỉ sử dụng lưu trữ cục bộ để lưu ghi nhận."}}
+          {
+            "@type": "Question",
+            "name": "Dữ liệu có bị gửi lên máy chủ không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Không. Mặc định mọi thứ lưu cục bộ trong trình duyệt. Chỉ khi bạn chủ động xuất file thì dữ liệu mới rời thiết bị."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Trang có dùng analytics hoặc tracker không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Không. Không analytics, không pixel, không tracker, không thư viện ngoài."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Integrity record là gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Là một bản ghi có cấu trúc: mô tả, nguồn, thời gian, và dấu kiểm toàn vẹn (hash) để phát hiện thay đổi."
+            }
+          }
         ]
       }
     ]
   }
   </script>
 
-  <!-- CSS giữ nguyên + tinh chỉnh nhẹ -->
   <style>
-    :root {
-      --bg: #fbfbfc;
-      --card: #ffffff;
-      --text: #141618;
-      --muted: #4f5963;
-      --line: #e6e8eb;
-      --soft: #f2f4f7;
-      --accent: #0f5fff;
-      --accent-2: #0b3fb0;
-      --radius: 16px;
-      --radius-lg: 22px;
-      --shadow: 0 10px 26px rgba(17,24,39,0.08);
-      --max-width: 1100px;
+    :root{
+      --bg:#fbfbfc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --shadow: 0 10px 30px rgba(2,6,23,.06);
+      --shadow2: 0 4px 14px rgba(2,6,23,.06);
+      --focus: 0 0 0 4px rgba(59,130,246,.18);
+      --accent:#2563eb;
+      --accent2:#0ea5e9;
+      --danger:#b91c1c;
+      --ok:#16a34a;
+      --warn:#a16207;
+      --radius:16px;
+      --radius2:20px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
       color: var(--text);
-      line-height: 1.6;
+      background: radial-gradient(1200px 700px at 10% 0%, rgba(14,165,233,.10), transparent 55%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(37,99,235,.10), transparent 55%),
+                  var(--bg);
+      line-height:1.55;
     }
-
-    .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 1.25rem; }
-
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(251,251,252,0.85);
-      border-bottom: 1px solid rgba(230,232,235,0.6);
-      z-index: 50;
+    a{ color: var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 18px 18px 64px; }
+    .topbar{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,251,252,.82);
+      border-bottom: 1px solid rgba(226,232,240,.8);
     }
-
-    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; flex-wrap: wrap; gap: 1rem; }
-
-    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em; color: var(--text); }
-
-    nav a {
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
+    .topinner{ max-width: var(--max); margin:0 auto; padding: 12px 18px; display:flex; align-items:center; gap:12px; }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 220px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(37,99,235,1), rgba(14,165,233,1));
+      box-shadow: var(--shadow2);
+    }
+    .brand h1{
+      font-size: 14px; margin:0; letter-spacing:.2px;
+    }
+    .brand .sub{
+      font-size: 12px; color: var(--muted); margin-top:2px;
+    }
+    nav{ display:flex; align-items:center; gap: 10px; flex:1; justify-content:center; }
+    nav a{
+      font-size: 13px;
       color: var(--muted);
-      font-weight: 500;
+      padding: 8px 10px;
+      border-radius: 10px;
     }
-    nav a:hover, nav a[aria-current="true"] { background: rgba(255,255,255,0.9); color: var(--text); }
-
-    .hero { padding: 5rem 0 4rem; text-align: center; }
-    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.25rem; }
-    .hero p.lead { font-size: 1.25rem; color: var(--muted); max-width: 65ch; margin: 0 auto 2rem; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      transition: all 0.2s;
+    nav a:hover{ background: rgba(226,232,240,.7); text-decoration:none; color: var(--text); }
+    .controls{ display:flex; align-items:center; gap:10px; justify-content:flex-end; min-width: 260px; }
+    .lang{
+      display:flex; gap:6px; padding: 6px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.65);
+      border-radius: 999px;
+      box-shadow: var(--shadow2);
     }
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-2); }
-
-    section { padding: 4rem 0; }
-    h2 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 1.5rem; }
-
-    .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-
-    .card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.75rem;
+    .lang button{
+      border:0; background:transparent; cursor:pointer;
+      font-size: 12px; padding: 7px 10px; border-radius: 999px;
+      color: var(--muted);
+    }
+    .lang button[aria-pressed="true"]{
+      background: rgba(37,99,235,.10);
+      color: var(--text);
+      outline: 1px solid rgba(37,99,235,.24);
+    }
+    .btn{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.75);
+      color: var(--text);
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 12px;
+      cursor:pointer;
+      box-shadow: var(--shadow2);
+    }
+    .btn:hover{ background:#fff; }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(37,99,235,1), rgba(14,165,233,1));
+      color:#fff; border-color: transparent;
+    }
+    .btn.primary:hover{ filter: brightness(1.02); }
+    .btn:focus, button:focus, input:focus, textarea:focus, select:focus{
+      outline:none; box-shadow: var(--focus);
+    }
+    header.hero{
+      padding: 34px 0 14px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      nav{ display:none; }
+      .controls{ min-width: auto; }
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width:auto; }
+    }
+    .card{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(226,232,240,.85);
+      border-radius: var(--radius2);
       box-shadow: var(--shadow);
     }
-
-    footer { border-top: 1px solid var(--line); padding: 3rem 0 2rem; text-align: center; color: var(--muted); }
-
-    @media (max-width: 640px) {
-      .topbar { flex-direction: column; }
-      nav { justify-content: center; }
+    .pad{ padding: 18px; }
+    .hero h2{
+      font-size: 32px;
+      letter-spacing: -.2px;
+      margin: 0 0 10px;
+      line-height:1.15;
     }
+    .hero p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 62ch;
+    }
+    .pillrow{ display:flex; flex-wrap:wrap; gap:8px; margin: 14px 0 18px; }
+    .pill{
+      font-size: 12px;
+      color: #0b1220;
+      background: rgba(15,23,42,.04);
+      border: 1px solid rgba(226,232,240,.9);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+    .cta{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .tiny{
+      font-size: 12px; color: var(--muted);
+      margin-top: 12px;
+    }
+    .klist{ display:grid; gap:10px; }
+    .kitem{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px; border-radius: 16px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(226,232,240,.85);
+    }
+    .kdot{
+      width: 10px; height: 10px; border-radius: 999px; margin-top:6px;
+      background: rgba(37,99,235,.9);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+      flex:0 0 auto;
+    }
+    .kitem h3{
+      margin:0 0 4px; font-size: 13px;
+    }
+    .kitem p{
+      margin:0; color: var(--muted); font-size: 13px;
+    }
+    section{ scroll-margin-top: 84px; }
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 12px;
+      margin: 18px 0 10px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:-.1px;
+    }
+    .sectionHead .hint{
+      font-size: 12px; color: var(--muted);
+    }
+    .cols3{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      .cols3{ grid-template-columns: 1fr; }
+    }
+    .feature{
+      padding: 14px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(226,232,240,.85);
+      box-shadow: var(--shadow2);
+      min-height: 120px;
+    }
+    .feature .tag{
+      display:inline-block;
+      font-size: 11px; color: rgba(2,6,23,.76);
+      background: rgba(14,165,233,.10);
+      border: 1px solid rgba(14,165,233,.18);
+      padding: 5px 8px; border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .feature h3{ margin:0 0 6px; font-size: 14px; }
+    .feature p{ margin:0; color: var(--muted); font-size: 13px; }
+
+    .toolWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .toolWrap{ grid-template-columns: 1fr; }
+    }
+    .tool{
+      padding: 14px;
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(226,232,240,.85);
+      box-shadow: var(--shadow);
+    }
+    .tool h3{ margin:0 0 8px; font-size: 14px; }
+    .tool p{ margin:0 0 10px; color: var(--muted); font-size: 13px; }
+    label{ font-size: 12px; color: var(--muted); display:block; margin: 10px 0 6px; }
+    input, textarea, select{
+      width:100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 11px;
+      font-size: 13px;
+      background: rgba(255,255,255,.9);
+      color: var(--text);
+    }
+    textarea{ min-height: 90px; resize: vertical; }
+    .row{ display:flex; gap:10px; }
+    .row > *{ flex:1; }
+    .mono{
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.45;
+      color: rgba(2,6,23,.86);
+      background: rgba(2,6,23,.04);
+      border: 1px solid rgba(226,232,240,.85);
+      border-radius: 12px;
+      padding: 10px;
+      overflow:auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .actions{
+      display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+      margin-top: 10px;
+    }
+    .status{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(226,232,240,.9);
+      background: rgba(255,255,255,.75);
+    }
+    .dotOk{ width:8px; height:8px; border-radius:999px; background: rgba(22,163,74,.95); box-shadow: 0 0 0 4px rgba(22,163,74,.15); }
+    .dotWarn{ width:8px; height:8px; border-radius:999px; background: rgba(161,98,7,.95); box-shadow: 0 0 0 4px rgba(161,98,7,.15); }
+    .dotNo{ width:8px; height:8px; border-radius:999px; background: rgba(185,28,28,.95); box-shadow: 0 0 0 4px rgba(185,28,28,.15); }
+
+    details{
+      border: 1px solid rgba(226,232,240,.85);
+      background: rgba(255,255,255,.78);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow2);
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor:pointer;
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(2,6,23,.92);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+    footer{
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(226,232,240,.85);
+      color: var(--muted);
+      font-size: 12px;
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    }
+    .footlinks{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .sep{ color: rgba(148,163,184,.9); }
+    .kbd{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(226,232,240,.9);
+      background: rgba(255,255,255,.75);
+      color: rgba(2,6,23,.84);
+    }
+    .sr{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   </style>
 </head>
+
 <body>
+  <div class="topbar" role="banner">
+    <div class="topinner">
+      <div class="brand" aria-label="Brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Life Integrity Systems</h1>
+          <div class="sub" data-i18n="top.subtitle">Local-first. Privacy-first. Proof-based.</div>
+        </div>
+      </div>
 
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white p-4 rounded shadow">Bỏ qua đến nội dung chính</a>
-
-  <header>
-    <div class="wrap topbar">
-      <div class="logo">Life Integrity Systems</div>
-
-      <nav aria-label="Điều hướng chính">
-        <a href="#van-de">Vấn đề</a>
-        <a href="#giai-phap">Giải pháp</a>
-        <a href="#cach-hoat-dong">Cách hoạt động</a>
-        <a href="#rieng-tu">Riêng tư</a>
-        <a href="#cong-cu">Công cụ</a>
+      <nav aria-label="Primary">
+        <a href="#problem" data-i18n="nav.problem">Vấn đề</a>
+        <a href="#solution" data-i18n="nav.solution">Giải pháp</a>
+        <a href="#how" data-i18n="nav.how">Cách dùng</a>
+        <a href="#privacy" data-i18n="nav.privacy">Quyền riêng tư</a>
+        <a href="#tools" data-i18n="nav.tools">Công cụ</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
+
+      <div class="controls">
+        <div class="lang" aria-label="Language switch">
+          <button type="button" data-langbtn="vi" aria-pressed="true">VI</button>
+          <button type="button" data-langbtn="en" aria-pressed="false">EN</button>
+          <button type="button" data-langbtn="ko" aria-pressed="false">KO</button>
+          <button type="button" data-langbtn="ja" aria-pressed="false">JA</button>
+        </div>
+        <button class="btn primary" type="button" data-scrollto="#tools" data-i18n="top.try">Thử công cụ</button>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <main id="main-content">
+  <main class="wrap" id="main" role="main">
+    <header class="hero" aria-label="Hero">
+      <div class="grid">
+        <div class="card pad">
+          <h2 data-i18n="hero.title">Bảo toàn tính toàn vẹn và liên tục dữ liệu số, theo cách bình tĩnh.</h2>
+          <p data-i18n="hero.desc">
+            Một trang tĩnh, một file, chạy offline. Bạn ghi nhận sự kiện hoặc tài liệu quan trọng, tạo dấu kiểm toàn vẹn (hash),
+            và xuất gói dữ liệu để dùng khi cần. Không cloud sync. Không theo dõi.
+          </p>
 
-    <section class="hero bg-gradient-to-br from-blue-50 via-white to-green-50/30">
-      <div class="wrap">
-        <p class="text-lg font-medium text-blue-600 mb-3">Bình tĩnh · Rõ ràng · Tôn trọng riêng tư</p>
-        <h1>Giữ dữ liệu số của bạn rõ ràng, có bằng chứng và thực sự thuộc về bạn</h1>
-        <p class="lead">
-          Life Integrity Systems là công cụ <strong>local-first</strong> giúp ghi nhận sự kiện, tạo hash kiểm tra tính toàn vẹn, xuất gói JSON an toàn — không theo dõi, không analytics, không server.
-        </p>
+          <div class="pillrow" aria-label="Highlights">
+            <span class="pill" data-i18n="hero.p1">Lưu cục bộ trong trình duyệt</span>
+            <span class="pill" data-i18n="hero.p2">Xuất JSON có hash</span>
+            <span class="pill" data-i18n="hero.p3">Không analytics, không tracker</span>
+            <span class="pill" data-i18n="hero.p4">Dễ kiểm tra thay đổi</span>
+          </div>
 
-        <div class="flex flex-wrap gap-4 justify-center mt-8">
-          <a href="#cong-cu" class="btn btn-primary text-lg">Mở công cụ ghi nhận ngay</a>
-          <a href="#rieng-tu" class="btn border border-gray-300 hover:bg-gray-50 text-lg">Cam kết riêng tư</a>
+          <div class="cta">
+            <button class="btn primary" type="button" data-scrollto="#tools" data-i18n="hero.cta1">Mở công cụ tạo bản ghi</button>
+            <button class="btn" type="button" data-scrollto="#privacy" data-i18n="hero.cta2">Đọc cam kết quyền riêng tư</button>
+            <span class="badge" title="Trạng thái hoạt động">
+              <span class="dotOk" aria-hidden="true"></span>
+              <span data-i18n="hero.badge">Chạy hoàn toàn trên máy bạn</span>
+            </span>
+          </div>
+
+          <div class="tiny" data-i18n="hero.note">
+            Gợi ý: Hãy xem đây như một sổ ghi nhận chuẩn hóa, có dấu kiểm, có thể xuất ra để đối chiếu khi cần.
+          </div>
+        </div>
+
+        <aside class="card pad" aria-label="Quick checklist">
+          <div class="klist">
+            <div class="kitem">
+              <span class="kdot" aria-hidden="true"></span>
+              <div>
+                <h3 data-i18n="quick.t1">Ghi nhận đúng cấu trúc</h3>
+                <p data-i18n="quick.d1">Nguồn, thời gian, mô tả, liên kết, người liên quan. Càng rõ, càng ít tranh cãi.</p>
+              </div>
+            </div>
+            <div class="kitem">
+              <span class="kdot" aria-hidden="true" style="background: rgba(14,165,233,.95); box-shadow: 0 0 0 4px rgba(14,165,233,.12);"></span>
+              <div>
+                <h3 data-i18n="quick.t2">Tạo dấu kiểm toàn vẹn</h3>
+                <p data-i18n="quick.d2">Hash giúp phát hiện dữ liệu bị đổi sau khi lưu hoặc chia sẻ.</p>
+              </div>
+            </div>
+            <div class="kitem">
+              <span class="kdot" aria-hidden="true" style="background: rgba(22,163,74,.95); box-shadow: 0 0 0 4px rgba(22,163,74,.12);"></span>
+              <div>
+                <h3 data-i18n="quick.t3">Xuất gói khi cần</h3>
+                <p data-i18n="quick.d3">Tải xuống JSON và giữ ở nơi an toàn. Bạn quyết định lúc nào xuất.</p>
+              </div>
+            </div>
+            <div class="kitem">
+              <span class="kdot" aria-hidden="true" style="background: rgba(161,98,7,.95); box-shadow: 0 0 0 4px rgba(161,98,7,.12);"></span>
+              <div>
+                <h3 data-i18n="quick.t4">Không hứa hẹn quá đà</h3>
+                <p data-i18n="quick.d4">Đây không phải công cụ giám sát hay phát hiện tự động. Chỉ là hệ thống ghi nhận và kiểm tra.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="problem" aria-label="Problem">
+      <div class="sectionHead">
+        <h2 data-i18n="problem.title">Vấn đề thực tế</h2>
+        <div class="hint" data-i18n="problem.hint">Điều thường xảy ra trong 6 đến 24 tháng sau một sự kiện số.</div>
+      </div>
+      <div class="cols3">
+        <div class="feature">
+          <div class="tag" data-i18n="problem.tag1">Mất bối cảnh</div>
+          <h3 data-i18n="problem.h1">Đoạn chat, email, file, link tách rời</h3>
+          <p data-i18n="problem.p1">Khi cần chứng minh lại, bạn không nhớ nguồn gốc, ai gửi, và phiên bản nào là đúng.</p>
+        </div>
+        <div class="feature">
+          <div class="tag" data-i18n="problem.tag2">Dễ bị chỉnh sửa</div>
+          <h3 data-i18n="problem.h2">Ảnh chụp màn hình không đủ tin cậy</h3>
+          <p data-i18n="problem.p2">Nội dung có thể bị cắt, ghép, hoặc mất metadata. Người khác có thể phản biện rất dễ.</p>
+        </div>
+        <div class="feature">
+          <div class="tag" data-i18n="problem.tag3">Rò rỉ dữ liệu</div>
+          <h3 data-i18n="problem.h3">Cloud ghi lại quá nhiều</h3>
+          <p data-i18n="problem.p3">Nhiều công cụ tiện nhưng để lại dấu vết. Bạn mất quyền kiểm soát dữ liệu gốc.</p>
         </div>
       </div>
     </section>
 
-    <section id="van-de">
-      <div class="wrap">
-        <h2>Vấn đề thực tế của dữ liệu số hiện nay</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Dữ liệu phân tán, dễ mất liên tục</h3>
-            <p>Email, chat, ảnh chụp màn hình, file nằm rải rác → khi cần tổng hợp lại thì chậm, dễ nhầm lẫn, khó chứng minh.</p>
+    <section id="solution" aria-label="Solution">
+      <div class="sectionHead">
+        <h2 data-i18n="solution.title">Giải pháp của Life Integrity</h2>
+        <div class="hint" data-i18n="solution.hint">Một cách làm nhẹ, nhưng nghiêm túc.</div>
+      </div>
+      <div class="cols3">
+        <div class="feature">
+          <div class="tag" data-i18n="solution.tag1">Local-first</div>
+          <h3 data-i18n="solution.h1">Dữ liệu ở lại trên máy bạn</h3>
+          <p data-i18n="solution.p1">Lưu trong trình duyệt. Không gửi đi đâu. Không cần tài khoản.</p>
+        </div>
+        <div class="feature">
+          <div class="tag" data-i18n="solution.tag2">Proof-based</div>
+          <h3 data-i18n="solution.h2">Có dấu kiểm toàn vẹn</h3>
+          <p data-i18n="solution.p2">Tạo hash SHA-256 cho bản ghi hoặc gói xuất. Dễ phát hiện chỉnh sửa.</p>
+        </div>
+        <div class="feature">
+          <div class="tag" data-i18n="solution.tag3">Portable</div>
+          <h3 data-i18n="solution.h3">Xuất gói JSON, có thể lưu trữ lâu dài</h3>
+          <p data-i18n="solution.p3">Bạn tải xuống, lưu ở nơi bạn tin. Dùng để đối chiếu hoặc bàn giao khi cần.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" aria-label="How to use">
+      <div class="sectionHead">
+        <h2 data-i18n="how.title">Cách dùng trong 3 bước</h2>
+        <div class="hint" data-i18n="how.hint">Giữ đơn giản để giữ liên tục.</div>
+      </div>
+      <div class="cols3">
+        <div class="feature">
+          <div class="tag" data-i18n="how.tag1">Bước 1</div>
+          <h3 data-i18n="how.h1">Tạo bản ghi</h3>
+          <p data-i18n="how.p1">Mô tả ngắn, nguồn, thời gian, liên kết. Chỉ metadata, không bắt buộc tải file lên.</p>
+        </div>
+        <div class="feature">
+          <div class="tag" data-i18n="how.tag2">Bước 2</div>
+          <h3 data-i18n="how.h2">Tạo hash</h3>
+          <p data-i18n="how.p2">Hệ thống tạo SHA-256 để cố định dấu vân tay dữ liệu hiện tại.</p>
+        </div>
+        <div class="feature">
+          <div class="tag" data-i18n="how.tag3">Bước 3</div>
+          <h3 data-i18n="how.h3">Xuất gói</h3>
+          <p data-i18n="how.p3">Tải JSON xuống. Khi cần, bạn có thể nạp lại và kiểm tra hash để đối chiếu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" aria-label="Privacy">
+      <div class="sectionHead">
+        <h2 data-i18n="privacy.title">Cam kết quyền riêng tư</h2>
+        <div class="hint" data-i18n="privacy.hint">Nói rõ, không mơ hồ.</div>
+      </div>
+
+      <div class="card pad">
+        <div class="pillrow">
+          <span class="pill" data-i18n="privacy.b1">Không analytics</span>
+          <span class="pill" data-i18n="privacy.b2">Không tracker</span>
+          <span class="pill" data-i18n="privacy.b3">Không CDN</span>
+          <span class="pill" data-i18n="privacy.b4">Không thư viện ngoài</span>
+          <span class="pill" data-i18n="privacy.b5">Có thể chạy offline</span>
+        </div>
+
+        <div class="cols3">
+          <div class="feature">
+            <div class="tag" data-i18n="privacy.tag1">Lưu trữ</div>
+            <h3 data-i18n="privacy.h1">Chỉ lưu cục bộ</h3>
+            <p data-i18n="privacy.p1">Bản ghi được lưu trong trình duyệt của bạn. Xóa cache là mất, vì đây là local-first.</p>
           </div>
-          <div class="card">
-            <h3>Bằng chứng yếu, không kiểm chứng được</h3>
-            <p>Link chết, file đổi tên, ảnh chụp màn hình thiếu bối cảnh → sau vài tháng chính bạn cũng không chắc dữ liệu còn nguyên vẹn.</p>
+          <div class="feature">
+            <div class="tag" data-i18n="privacy.tag2">Xuất dữ liệu</div>
+            <h3 data-i18n="privacy.h2">Bạn là người bấm xuất</h3>
+            <p data-i18n="privacy.p2">Không có xuất tự động. Bạn kiểm soát thời điểm và nơi lưu file.</p>
           </div>
-          <div class="card">
-            <h3>Rủi ro riêng tư từ công cụ bên thứ ba</h3>
-            <p>Nhiều ứng dụng miễn phí đổi dữ liệu lấy tiện lợi → bị theo dõi hành vi, rò rỉ thông tin, phụ thuộc nền tảng.</p>
+          <div class="feature">
+            <div class="tag" data-i18n="privacy.tag3">Giới hạn</div>
+            <h3 data-i18n="privacy.h3">Không thay thế tư vấn pháp lý</h3>
+            <p data-i18n="privacy.p3">Công cụ hỗ trợ ghi nhận và kiểm tra tính toàn vẹn, không phải kết luận pháp lý.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="giai-phap" class="bg-gray-50">
-      <div class="wrap">
-        <h2>Giải pháp: Đúng – Đủ – Kiểm tra được</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Ghi nhận có cấu trúc</h3>
-            <p>Thời gian, nguồn, nội dung chính (fact), ghi chú cảm xúc, hành động tiếp theo, tag, link tham chiếu.</p>
+    <section id="tools" aria-label="Tools">
+      <div class="sectionHead">
+        <h2 data-i18n="tools.title">Công cụ chạy thật ngay trên trang</h2>
+        <div class="hint" data-i18n="tools.hint">Tạo bản ghi, hash, xuất gói. Dữ liệu ở lại trình duyệt.</div>
+      </div>
+
+      <div class="toolWrap">
+        <div class="tool">
+          <h3 data-i18n="tool1.title">1) Tạo bản ghi Integrity Record</h3>
+          <p data-i18n="tool1.desc">
+            Nhập metadata. Tạo hash SHA-256. Lưu cục bộ. Xuất gói JSON khi cần.
+          </p>
+
+          <label for="recTitle" data-i18n="tool1.f1">Tiêu đề</label>
+          <input id="recTitle" type="text" maxlength="140" placeholder="Ví dụ: Biên bản trao đổi dự án ngày 09/02/2026" />
+
+          <div class="row">
+            <div>
+              <label for="recSource" data-i18n="tool1.f2">Nguồn</label>
+              <input id="recSource" type="text" maxlength="120" placeholder="Ví dụ: Email, Chat, Cuộc gọi, Tài liệu" />
+            </div>
+            <div>
+              <label for="recTime" data-i18n="tool1.f3">Thời gian</label>
+              <input id="recTime" type="datetime-local" />
+            </div>
           </div>
-          <div class="card">
-            <h3>Tạo hash SHA-256 kiểm tra toàn vẹn</h3>
-            <p>Mỗi lần xuất gói JSON sẽ sinh hash → dễ dàng đối chiếu xem dữ liệu có bị sửa đổi hay không.</p>
+
+          <label for="recLink" data-i18n="tool1.f4">Liên kết tham chiếu (tùy chọn)</label>
+          <input id="recLink" type="url" maxlength="400" placeholder="https://..." />
+
+          <label for="recNote" data-i18n="tool1.f5">Mô tả ngắn (nên viết rõ)</label>
+          <textarea id="recNote" maxlength="2000" placeholder="Ghi rõ ai, chuyện gì, bối cảnh, kỳ vọng, và điểm cần đối chiếu."></textarea>
+
+          <div class="actions">
+            <button class="btn primary" type="button" id="btnCreate" data-i18n="tool1.btn1">Tạo hash và lưu</button>
+            <button class="btn" type="button" id="btnClear" data-i18n="tool1.btn2">Xóa form</button>
+            <span class="status" id="tool1Status" aria-live="polite"></span>
           </div>
-          <div class="card">
-            <h3>Local-first, hoạt động offline</h3>
-            <p>Dữ liệu chỉ nằm trong trình duyệt của bạn. Không server, không đồng bộ ngầm, không theo dõi.</p>
+
+          <div style="margin-top:10px;">
+            <div class="badge" id="localBadge" title="Local-first">
+              <span class="dotOk" aria-hidden="true"></span>
+              <span data-i18n="tool1.badge">Đang lưu cục bộ (localStorage)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool">
+          <h3 data-i18n="tool2.title">2) Danh sách bản ghi và xuất gói</h3>
+          <p data-i18n="tool2.desc">
+            Xem bản ghi đã lưu. Xuất JSON. Nạp JSON để kiểm tra hash.
+          </p>
+
+          <div class="actions">
+            <button class="btn" type="button" id="btnRefresh" data-i18n="tool2.btn1">Tải lại danh sách</button>
+            <button class="btn primary" type="button" id="btnExport" data-i18n="tool2.btn2">Xuất gói JSON</button>
+            <button class="btn" type="button" id="btnWipe" data-i18n="tool2.btn3">Xóa toàn bộ dữ liệu cục bộ</button>
+          </div>
+
+          <label data-i18n="tool2.listLabel" style="margin-top:12px;">Bản ghi (mới nhất ở trên)</label>
+          <div class="mono" id="recordsBox" aria-live="polite">[]</div>
+
+          <label for="importFile" data-i18n="tool2.importLabel" style="margin-top:12px;">Nạp gói JSON để kiểm tra</label>
+          <input id="importFile" type="file" accept="application/json,.json" />
+
+          <div class="actions">
+            <button class="btn" type="button" id="btnVerifyImport" data-i18n="tool2.btn4">Nạp và kiểm tra hash</button>
+            <span class="status" id="tool2Status" aria-live="polite"></span>
+          </div>
+
+          <div class="mono" id="verifyBox" style="margin-top:10px;">{}</div>
+
+          <div class="tiny" data-i18n="tool2.note">
+            Lưu ý: Hash kiểm tra dựa trên dữ liệu trong gói. Nếu nội dung bị sửa, hash sẽ không khớp.
           </div>
         </div>
       </div>
     </section>
 
-    <section id="cach-hoat-dong">
-      <div class="wrap">
-        <h2>Cách hoạt động – chỉ 3 bước</h2>
-        <div class="grid-3">
-          <div class="card">
-            <div class="text-4xl font-bold text-blue-600 mb-4">1</div>
-            <h3>Ghi nhận sự kiện</h3>
-            <p>Nhập thông tin theo mẫu có sẵn, gắn tag, thêm link nếu cần.</p>
-          </div>
-          <div class="card">
-            <div class="text-4xl font-bold text-blue-600 mb-4">2</div>
-            <h3>Lưu cục bộ</h3>
-            <p>Dữ liệu tự động lưu vào IndexedDB trong trình duyệt.</p>
-          </div>
-          <div class="card">
-            <div class="text-4xl font-bold text-blue-600 mb-4">3</div>
-            <h3>Xuất & kiểm tra</h3>
-            <p>Xuất file JSON + hash SHA-256 để lưu trữ hoặc chia sẻ an toàn.</p>
-          </div>
-        </div>
+    <section id="faq" aria-label="FAQ">
+      <div class="sectionHead">
+        <h2 data-i18n="faq.title">FAQ</h2>
+        <div class="hint" data-i18n="faq.hint">Những câu hỏi thường gặp, trả lời thẳng.</div>
       </div>
+
+      <details>
+        <summary data-i18n="faq.q1">Trang này có gửi dữ liệu của tôi ra ngoài không?</summary>
+        <p data-i18n="faq.a1">Không. Mọi dữ liệu được lưu trong trình duyệt. Không có request gửi dữ liệu đi (trừ khi bạn tự bấm tải file xuống máy).</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q2">Tôi có thể dùng offline không?</summary>
+        <p data-i18n="faq.a2">Có. Đây là trang tĩnh, không phụ thuộc CDN hay thư viện ngoài. Bạn có thể lưu file HTML và mở offline.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q3">Hash SHA-256 có ý nghĩa gì?</summary>
+        <p data-i18n="faq.a3">Hash là dấu vân tay của dữ liệu. Nếu dữ liệu thay đổi dù chỉ 1 ký tự, hash sẽ đổi. Điều này giúp bạn phát hiện chỉnh sửa.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q4">Có phù hợp cho tổ chức không?</summary>
+        <p data-i18n="faq.a4">Có, nếu tổ chức cần quy trình ghi nhận chuẩn hóa và xuất gói dữ liệu. Với nhu cầu lớn, có thể nâng cấp sang kho lưu trữ nội bộ riêng của tổ chức.</p>
+      </details>
     </section>
 
-    <section id="rieng-tu" class="bg-gray-50">
-      <div class="wrap">
-        <h2>Cam kết riêng tư & bảo mật</h2>
-        <div class="grid-2 gap-6 max-w-4xl mx-auto">
-          <div class="card">
-            <h3>Chúng tôi KHÔNG thu thập</h3>
-            <ul class="list-disc pl-5 space-y-2">
-              <li>Hành vi sử dụng, click, thời gian xem</li>
-              <li>Dữ liệu cá nhân, vị trí, danh bạ</li>
-              <li>Cookie theo dõi, pixel, fingerprint</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Chỉ lưu những gì bạn chủ động nhập</h3>
-            <ul class="list-disc pl-5 space-y-2">
-              <li>Dữ liệu nằm hoàn toàn trong trình duyệt</li>
-              <li>Bạn kiểm soát việc xuất file</li>
-              <li>Nếu xóa trình duyệt → dữ liệu mất (hãy sao lưu JSON)</li>
-            </ul>
-          </div>
-        </div>
+    <footer aria-label="Footer">
+      <div>
+        <span>© <span id="year"></span> Life Integrity Systems</span>
+        <span class="sep">|</span>
+        <span data-i18n="foot.local">Local-first. Privacy-first. Không theo dõi.</span>
       </div>
-    </section>
-
-    <section id="cong-cu" class="bg-gradient-to-b from-white to-blue-50/30 py-16">
-      <div class="wrap text-center">
-        <h2 class="text-4xl">Bắt đầu ghi nhận ngay – không cần đăng ký</h2>
-        <p class="text-xl text-gray-600 mt-4 mb-10">Công cụ chạy hoàn toàn trong trình duyệt. Dữ liệu của bạn, quyền kiểm soát của bạn.</p>
-        <a href="https://lifeintegrity.systems/tool" class="btn btn-primary text-xl px-10 py-5">Mở công cụ ghi nhận →</a>
+      <div class="footlinks">
+        <a href="#main" data-i18n="foot.top">Lên đầu trang</a>
+        <span class="sep">|</span>
+        <span data-i18n="foot.tip">Mẹo: nhấn</span>
+        <span class="kbd">Ctrl</span> <span class="kbd">S</span>
+        <span data-i18n="foot.tip2">để lưu trang chạy offline.</span>
       </div>
-    </section>
-
+    </footer>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>© <script>document.write(new Date().getFullYear())</script> Life Integrity Systems – Công cụ bảo toàn tính toàn vẹn dữ liệu số</p>
-      <p class="text-sm mt-2 text-gray-500">Local-first · Privacy-first · Không theo dõi · Không analytics</p>
-    </div>
-  </footer>
+  <script>
+    "use strict";
 
+    const I18N = {
+      vi: {
+        "top.subtitle":"Local-first. Privacy-first. Proof-based.",
+        "top.try":"Thử công cụ",
+        "nav.problem":"Vấn đề",
+        "nav.solution":"Giải pháp",
+        "nav.how":"Cách dùng",
+        "nav.privacy":"Quyền riêng tư",
+        "nav.tools":"Công cụ",
+        "nav.faq":"FAQ",
+
+        "hero.title":"Bảo toàn tính toàn vẹn và liên tục dữ liệu số, theo cách bình tĩnh.",
+        "hero.desc":"Một trang tĩnh, một file, chạy offline. Bạn ghi nhận sự kiện hoặc tài liệu quan trọng, tạo dấu kiểm toàn vẹn (hash), và xuất gói dữ liệu để dùng khi cần. Không cloud sync. Không theo dõi.",
+        "hero.p1":"Lưu cục bộ trong trình duyệt",
+        "hero.p2":"Xuất JSON có hash",
+        "hero.p3":"Không analytics, không tracker",
+        "hero.p4":"Dễ kiểm tra thay đổi",
+        "hero.cta1":"Mở công cụ tạo bản ghi",
+        "hero.cta2":"Đọc cam kết quyền riêng tư",
+        "hero.badge":"Chạy hoàn toàn trên máy bạn",
+        "hero.note":"Gợi ý: Hãy xem đây như một sổ ghi nhận chuẩn hóa, có dấu kiểm, có thể xuất ra để đối chiếu khi cần.",
+
+        "quick.t1":"Ghi nhận đúng cấu trúc",
+        "quick.d1":"Nguồn, thời gian, mô tả, liên kết, người liên quan. Càng rõ, càng ít tranh cãi.",
+        "quick.t2":"Tạo dấu kiểm toàn vẹn",
+        "quick.d2":"Hash giúp phát hiện dữ liệu bị đổi sau khi lưu hoặc chia sẻ.",
+        "quick.t3":"Xuất gói khi cần",
+        "quick.d3":"Tải xuống JSON và giữ ở nơi an toàn. Bạn quyết định lúc nào xuất.",
+        "quick.t4":"Không hứa hẹn quá đà",
+        "quick.d4":"Đây không phải công cụ giám sát hay phát hiện tự động. Chỉ là hệ thống ghi nhận và kiểm tra.",
+
+        "problem.title":"Vấn đề thực tế",
+        "problem.hint":"Điều thường xảy ra trong 6 đến 24 tháng sau một sự kiện số.",
+        "problem.tag1":"Mất bối cảnh",
+        "problem.h1":"Đoạn chat, email, file, link tách rời",
+        "problem.p1":"Khi cần chứng minh lại, bạn không nhớ nguồn gốc, ai gửi, và phiên bản nào là đúng.",
+        "problem.tag2":"Dễ bị chỉnh sửa",
+        "problem.h2":"Ảnh chụp màn hình không đủ tin cậy",
+        "problem.p2":"Nội dung có thể bị cắt, ghép, hoặc mất metadata. Người khác có thể phản biện rất dễ.",
+        "problem.tag3":"Rò rỉ dữ liệu",
+        "problem.h3":"Cloud ghi lại quá nhiều",
+        "problem.p3":"Nhiều công cụ tiện nhưng để lại dấu vết. Bạn mất quyền kiểm soát dữ liệu gốc.",
+
+        "solution.title":"Giải pháp của Life Integrity",
+        "solution.hint":"Một cách làm nhẹ, nhưng nghiêm túc.",
+        "solution.tag1":"Local-first",
+        "solution.h1":"Dữ liệu ở lại trên máy bạn",
+        "solution.p1":"Lưu trong trình duyệt. Không gửi đi đâu. Không cần tài khoản.",
+        "solution.tag2":"Proof-based",
+        "solution.h2":"Có dấu kiểm toàn vẹn",
+        "solution.p2":"Tạo hash SHA-256 cho bản ghi hoặc gói xuất. Dễ phát hiện chỉnh sửa.",
+        "solution.tag3":"Portable",
+        "solution.h3":"Xuất gói JSON, có thể lưu trữ lâu dài",
+        "solution.p3":"Bạn tải xuống, lưu ở nơi bạn tin. Dùng để đối chiếu hoặc bàn giao khi cần.",
+
+        "how.title":"Cách dùng trong 3 bước",
+        "how.hint":"Giữ đơn giản để giữ liên tục.",
+        "how.tag1":"Bước 1",
+        "how.h1":"Tạo bản ghi",
+        "how.p1":"Mô tả ngắn, nguồn, thời gian, liên kết. Chỉ metadata, không bắt buộc tải file lên.",
+        "how.tag2":"Bước 2",
+        "how.h2":"Tạo hash",
+        "how.p2":"Hệ thống tạo SHA-256 để cố định dấu vân tay dữ liệu hiện tại.",
+        "how.tag3":"Bước 3",
+        "how.h3":"Xuất gói",
+        "how.p3":"Tải JSON xuống. Khi cần, bạn có thể nạp lại và kiểm tra hash để đối chiếu.",
+
+        "privacy.title":"Cam kết quyền riêng tư",
+        "privacy.hint":"Nói rõ, không mơ hồ.",
+        "privacy.b1":"Không analytics",
+        "privacy.b2":"Không tracker",
+        "privacy.b3":"Không CDN",
+        "privacy.b4":"Không thư viện ngoài",
+        "privacy.b5":"Có thể chạy offline",
+        "privacy.tag1":"Lưu trữ",
+        "privacy.h1":"Chỉ lưu cục bộ",
+        "privacy.p1":"Bản ghi được lưu trong trình duyệt của bạn. Xóa cache là mất, vì đây là local-first.",
+        "privacy.tag2":"Xuất dữ liệu",
+        "privacy.h2":"Bạn là người bấm xuất",
+        "privacy.p2":"Không có xuất tự động. Bạn kiểm soát thời điểm và nơi lưu file.",
+        "privacy.tag3":"Giới hạn",
+        "privacy.h3":"Không thay thế tư vấn pháp lý",
+        "privacy.p3":"Công cụ hỗ trợ ghi nhận và kiểm tra tính toàn vẹn, không phải kết luận pháp lý.",
+
+        "tools.title":"Công cụ chạy thật ngay trên trang",
+        "tools.hint":"Tạo bản ghi, hash, xuất gói. Dữ liệu ở lại trình duyệt.",
+
+        "tool1.title":"1) Tạo bản ghi Integrity Record",
+        "tool1.desc":"Nhập metadata. Tạo hash SHA-256. Lưu cục bộ. Xuất gói JSON khi cần.",
+        "tool1.f1":"Tiêu đề",
+        "tool1.f2":"Nguồn",
+        "tool1.f3":"Thời gian",
+        "tool1.f4":"Liên kết tham chiếu (tùy chọn)",
+        "tool1.f5":"Mô tả ngắn (nên viết rõ)",
+        "tool1.btn1":"Tạo hash và lưu",
+        "tool1.btn2":"Xóa form",
+        "tool1.badge":"Đang lưu cục bộ (localStorage)",
+
+        "tool2.title":"2) Danh sách bản ghi và xuất gói",
+        "tool2.desc":"Xem bản ghi đã lưu. Xuất JSON. Nạp JSON để kiểm tra hash.",
+        "tool2.btn1":"Tải lại danh sách",
+        "tool2.btn2":"Xuất gói JSON",
+        "tool2.btn3":"Xóa toàn bộ dữ liệu cục bộ",
+        "tool2.listLabel":"Bản ghi (mới nhất ở trên)",
+        "tool2.importLabel":"Nạp gói JSON để kiểm tra",
+        "tool2.btn4":"Nạp và kiểm tra hash",
+        "tool2.note":"Lưu ý: Hash kiểm tra dựa trên dữ liệu trong gói. Nếu nội dung bị sửa, hash sẽ không khớp.",
+
+        "faq.title":"FAQ",
+        "faq.hint":"Những câu hỏi thường gặp, trả lời thẳng.",
+        "faq.q1":"Trang này có gửi dữ liệu của tôi ra ngoài không?",
+        "faq.a1":"Không. Mọi dữ liệu được lưu trong trình duyệt. Không có request gửi dữ liệu đi (trừ khi bạn tự bấm tải file xuống máy).",
+        "faq.q2":"Tôi có thể dùng offline không?",
+        "faq.a2":"Có. Đây là trang tĩnh, không phụ thuộc CDN hay thư viện ngoài. Bạn có thể lưu file HTML và mở offline.",
+        "faq.q3":"Hash SHA-256 có ý nghĩa gì?",
+        "faq.a3":"Hash là dấu vân tay của dữ liệu. Nếu dữ liệu thay đổi dù chỉ 1 ký tự, hash sẽ đổi. Điều này giúp bạn phát hiện chỉnh sửa.",
+        "faq.q4":"Có phù hợp cho tổ chức không?",
+        "faq.a4":"Có, nếu tổ chức cần quy trình ghi nhận chuẩn hóa và xuất gói dữ liệu. Với nhu cầu lớn, có thể nâng cấp sang kho lưu trữ nội bộ riêng của tổ chức.",
+
+        "foot.local":"Local-first. Privacy-first. Không theo dõi.",
+        "foot.top":"Lên đầu trang",
+        "foot.tip":"Mẹo: nhấn",
+        "foot.tip2":"để lưu trang chạy offline."
+      },
+
+      en: {
+        "top.subtitle":"Local-first. Privacy-first. Proof-based.",
+        "top.try":"Open tools",
+        "nav.problem":"Problem",
+        "nav.solution":"Solution",
+        "nav.how":"How",
+        "nav.privacy":"Privacy",
+        "nav.tools":"Tools",
+        "nav.faq":"FAQ",
+
+        "hero.title":"Keep digital integrity and continuity, in a calm way.",
+        "hero.desc":"One static file, works offline. Record important events or references, generate integrity hashes, and export a package when needed. No cloud sync. No tracking.",
+        "hero.p1":"Stored locally in your browser",
+        "hero.p2":"Export JSON with hashes",
+        "hero.p3":"No analytics, no trackers",
+        "hero.p4":"Easy tamper checks",
+        "hero.cta1":"Open the record tool",
+        "hero.cta2":"Read privacy commitment",
+        "hero.badge":"Runs entirely on your device",
+        "hero.note":"Tip: treat this as a structured log with integrity checks that you can export for later verification.",
+
+        "quick.t1":"Structured recording",
+        "quick.d1":"Source, time, summary, links, involved parties. Clarity reduces disputes.",
+        "quick.t2":"Integrity hash",
+        "quick.d2":"Hash helps detect changes after storage or sharing.",
+        "quick.t3":"Export when needed",
+        "quick.d3":"Download JSON and keep it in a safe place. You decide when to export.",
+        "quick.t4":"No inflated claims",
+        "quick.d4":"This is not surveillance or automatic detection. It is a recording and verification aid.",
+
+        "problem.title":"Real-world problem",
+        "problem.hint":"What usually happens 6 to 24 months after a digital event.",
+        "problem.tag1":"Lost context",
+        "problem.h1":"Chats, emails, files, links get separated",
+        "problem.p1":"When you need to prove something later, you forget origin, sender, and the correct version.",
+        "problem.tag2":"Easy to edit",
+        "problem.h2":"Screenshots are not enough",
+        "problem.p2":"Content can be cropped, edited, or lose metadata. It is easy to challenge.",
+        "problem.tag3":"Data leakage",
+        "problem.h3":"Cloud keeps too much",
+        "problem.p3":"Convenient tools often leave trails. You lose control of the originals.",
+
+        "solution.title":"Life Integrity approach",
+        "solution.hint":"Lightweight, but serious.",
+        "solution.tag1":"Local-first",
+        "solution.h1":"Your data stays on your device",
+        "solution.p1":"Stored in your browser. Not sent anywhere. No account required.",
+        "solution.tag2":"Proof-based",
+        "solution.h2":"Integrity checks included",
+        "solution.p2":"Generate SHA-256 for records or export packages. Tamper evidence becomes simple.",
+        "solution.tag3":"Portable",
+        "solution.h3":"Export JSON packages for long-term storage",
+        "solution.p3":"Download and store where you trust. Use for verification or handover later.",
+
+        "how.title":"How it works in 3 steps",
+        "how.hint":"Keep it simple to keep it continuous.",
+        "how.tag1":"Step 1",
+        "how.h1":"Create a record",
+        "how.p1":"Short summary, source, time, links. Metadata only, no file upload required.",
+        "how.tag2":"Step 2",
+        "how.h2":"Generate a hash",
+        "how.p2":"Create SHA-256 to lock the current state fingerprint.",
+        "how.tag3":"Step 3",
+        "how.h3":"Export a package",
+        "how.p3":"Download JSON. Import later to verify hashes and compare.",
+
+        "privacy.title":"Privacy commitment",
+        "privacy.hint":"Clear, no ambiguity.",
+        "privacy.b1":"No analytics",
+        "privacy.b2":"No trackers",
+        "privacy.b3":"No CDN",
+        "privacy.b4":"No external libraries",
+        "privacy.b5":"Offline capable",
+        "privacy.tag1":"Storage",
+        "privacy.h1":"Local storage only",
+        "privacy.p1":"Records are stored in your browser. Clearing site data will remove them, by design.",
+        "privacy.tag2":"Export",
+        "privacy.h2":"You choose when to export",
+        "privacy.p2":"No automatic exporting. You control timing and destination.",
+        "privacy.tag3":"Limits",
+        "privacy.h3":"Not legal advice",
+        "privacy.p3":"This tool helps record and verify integrity. It does not replace legal counsel.",
+
+        "tools.title":"Real tools, running on this page",
+        "tools.hint":"Create records, hash, export packages. Data stays local.",
+
+        "tool1.title":"1) Create an Integrity Record",
+        "tool1.desc":"Enter metadata. Generate SHA-256. Store locally. Export JSON when needed.",
+        "tool1.f1":"Title",
+        "tool1.f2":"Source",
+        "tool1.f3":"Time",
+        "tool1.f4":"Reference link (optional)",
+        "tool1.f5":"Short notes (be precise)",
+        "tool1.btn1":"Hash and save",
+        "tool1.btn2":"Clear form",
+        "tool1.badge":"Saving locally (localStorage)",
+
+        "tool2.title":"2) Records and export",
+        "tool2.desc":"View stored records. Export JSON. Import JSON to verify hashes.",
+        "tool2.btn1":"Refresh list",
+        "tool2.btn2":"Export JSON package",
+        "tool2.btn3":"Wipe local data",
+        "tool2.listLabel":"Records (latest first)",
+        "tool2.importLabel":"Import JSON package to verify",
+        "tool2.btn4":"Import and verify",
+        "tool2.note":"Note: verification compares hashes computed from the imported data. If content is changed, hashes will not match.",
+
+        "faq.title":"FAQ",
+        "faq.hint":"Common questions, direct answers.",
+        "faq.q1":"Does this page send my data anywhere?",
+        "faq.a1":"No. Everything is stored locally in your browser. There is no data upload request (except you downloading a file to your device).",
+        "faq.q2":"Can I use it offline?",
+        "faq.a2":"Yes. This is a static page with no external dependencies. Save the HTML file and open it offline.",
+        "faq.q3":"What does SHA-256 hash mean here?",
+        "faq.a3":"A hash is a fingerprint. If the data changes by even one character, the hash changes. This helps detect tampering.",
+        "faq.q4":"Is it suitable for organizations?",
+        "faq.a4":"Yes, for structured recording and export. For large needs, it can be upgraded to an internal storage system.",
+
+        "foot.local":"Local-first. Privacy-first. No tracking.",
+        "foot.top":"Back to top",
+        "foot.tip":"Tip: press",
+        "foot.tip2":"to save and run offline."
+      },
+
+      ko: {
+        "top.subtitle":"로컬 우선. 프라이버시 우선. 증거 기반.",
+        "top.try":"도구 열기",
+        "nav.problem":"문제",
+        "nav.solution":"해결",
+        "nav.how":"사용법",
+        "nav.privacy":"프라이버시",
+        "nav.tools":"도구",
+        "nav.faq":"FAQ",
+
+        "hero.title":"디지털 무결성과 연속성을 차분하게 유지합니다.",
+        "hero.desc":"정적 파일 하나로 오프라인에서도 동작합니다. 중요한 기록을 남기고 무결성 해시를 생성한 뒤 필요할 때 패키지를 내보냅니다. 클라우드 동기화 없음. 추적 없음.",
+        "hero.p1":"브라우저에 로컬 저장",
+        "hero.p2":"해시 포함 JSON 내보내기",
+        "hero.p3":"분석 도구 없음, 추적기 없음",
+        "hero.p4":"변조 확인 쉬움",
+        "hero.cta1":"기록 도구 열기",
+        "hero.cta2":"프라이버시 약속 보기",
+        "hero.badge":"내 기기에서만 실행",
+        "hero.note":"팁: 무결성 검증이 가능한 구조화 로그로 사용하세요.",
+
+        "quick.t1":"구조화 기록",
+        "quick.d1":"출처, 시간, 요약, 링크, 관련자. 명확할수록 분쟁이 줄어듭니다.",
+        "quick.t2":"무결성 해시",
+        "quick.d2":"저장 또는 공유 후 변경 여부를 확인합니다.",
+        "quick.t3":"필요할 때 내보내기",
+        "quick.d3":"JSON을 다운로드해 안전한 곳에 보관하세요.",
+        "quick.t4":"과장하지 않기",
+        "quick.d4":"자동 탐지나 감시 도구가 아닙니다. 기록 및 검증 보조 도구입니다.",
+
+        "problem.title":"현실적인 문제",
+        "problem.hint":"디지털 사건 이후 6-24개월에 자주 생기는 일.",
+        "problem.tag1":"맥락 상실",
+        "problem.h1":"대화, 이메일, 파일, 링크가 흩어짐",
+        "problem.p1":"나중에 증명하려면 출처와 버전을 잊기 쉽습니다.",
+        "problem.tag2":"편집 쉬움",
+        "problem.h2":"스크린샷만으로는 부족",
+        "problem.p2":"내용이 잘리거나 편집될 수 있고 메타데이터가 사라집니다.",
+        "problem.tag3":"데이터 유출",
+        "problem.h3":"클라우드가 너무 많이 기록",
+        "problem.p3":"편리하지만 흔적이 남아 원본 통제력을 잃을 수 있습니다.",
+
+        "solution.title":"Life Integrity 방식",
+        "solution.hint":"가볍지만 진지하게.",
+        "solution.tag1":"로컬 우선",
+        "solution.h1":"데이터는 내 기기에",
+        "solution.p1":"브라우저에 저장되고 어디에도 전송되지 않습니다.",
+        "solution.tag2":"증거 기반",
+        "solution.h2":"무결성 검증",
+        "solution.p2":"SHA-256으로 변조 여부를 쉽게 확인합니다.",
+        "solution.tag3":"휴대성",
+        "solution.h3":"장기 보관 가능한 JSON 내보내기",
+        "solution.p3":"신뢰하는 곳에 저장하고 필요 시 검증에 사용합니다.",
+
+        "how.title":"3단계 사용법",
+        "how.hint":"단순해야 오래 갑니다.",
+        "how.tag1":"1단계",
+        "how.h1":"기록 생성",
+        "how.p1":"요약, 출처, 시간, 링크. 파일 업로드 없이 메타데이터만.",
+        "how.tag2":"2단계",
+        "how.h2":"해시 생성",
+        "how.p2":"현재 상태의 지문을 고정합니다.",
+        "how.tag3":"3단계",
+        "how.h3":"패키지 내보내기",
+        "how.p3":"JSON을 다운로드하고 나중에 가져와 검증합니다.",
+
+        "privacy.title":"프라이버시 약속",
+        "privacy.hint":"명확하게.",
+        "privacy.b1":"분석 도구 없음",
+        "privacy.b2":"추적기 없음",
+        "privacy.b3":"CDN 없음",
+        "privacy.b4":"외부 라이브러리 없음",
+        "privacy.b5":"오프라인 가능",
+        "privacy.tag1":"저장",
+        "privacy.h1":"로컬 저장만",
+        "privacy.p1":"브라우저에 저장되며 사이트 데이터 삭제 시 사라집니다.",
+        "privacy.tag2":"내보내기",
+        "privacy.h2":"내가 선택",
+        "privacy.p2":"자동 내보내기 없음. 시점과 위치를 내가 결정합니다.",
+        "privacy.tag3":"한계",
+        "privacy.h3":"법률 자문 아님",
+        "privacy.p3":"기록과 무결성 검증을 돕지만 법률 자문을 대체하지 않습니다.",
+
+        "tools.title":"이 페이지에서 바로 실행되는 도구",
+        "tools.hint":"기록, 해시, 내보내기. 데이터는 로컬에.",
+
+        "tool1.title":"1) 무결성 기록 만들기",
+        "tool1.desc":"메타데이터 입력, SHA-256 생성, 로컬 저장, 필요 시 JSON 내보내기.",
+        "tool1.f1":"제목",
+        "tool1.f2":"출처",
+        "tool1.f3":"시간",
+        "tool1.f4":"참조 링크 (선택)",
+        "tool1.f5":"메모 (정확하게)",
+        "tool1.btn1":"해시 생성 및 저장",
+        "tool1.btn2":"양식 지우기",
+        "tool1.badge":"로컬 저장 중 (localStorage)",
+
+        "tool2.title":"2) 기록 목록 및 내보내기",
+        "tool2.desc":"저장된 기록 보기, JSON 내보내기, 가져오기 후 해시 검증.",
+        "tool2.btn1":"새로고침",
+        "tool2.btn2":"JSON 내보내기",
+        "tool2.btn3":"로컬 데이터 삭제",
+        "tool2.listLabel":"기록 (최신순)",
+        "tool2.importLabel":"검증을 위한 JSON 가져오기",
+        "tool2.btn4":"가져오기 및 검증",
+        "tool2.note":"참고: 가져온 데이터로 해시를 다시 계산해 비교합니다. 변경되면 불일치합니다.",
+
+        "faq.title":"FAQ",
+        "faq.hint":"자주 묻는 질문.",
+        "faq.q1":"데이터가 외부로 전송되나요?",
+        "faq.a1":"아니요. 브라우저에만 저장됩니다. 업로드 요청은 없습니다(다운로드는 사용자 동작).",
+        "faq.q2":"오프라인 사용이 가능한가요?",
+        "faq.a2":"가능합니다. 정적 페이지이며 외부 의존성이 없습니다.",
+        "faq.q3":"SHA-256 해시는 무엇인가요?",
+        "faq.a3":"데이터의 지문입니다. 한 글자만 바뀌어도 해시가 바뀝니다.",
+        "faq.q4":"조직에서도 쓸 수 있나요?",
+        "faq.a4":"네. 구조화 기록과 내보내기에 유용합니다. 대규모는 내부 시스템으로 확장 가능합니다.",
+
+        "foot.local":"로컬 우선. 프라이버시 우선. 추적 없음.",
+        "foot.top":"맨 위로",
+        "foot.tip":"팁:",
+        "foot.tip2":"로 저장 후 오프라인 실행."
+      },
+
+      ja: {
+        "top.subtitle":"ローカル優先。プライバシー優先。証拠ベース。",
+        "top.try":"ツールを開く",
+        "nav.problem":"課題",
+        "nav.solution":"解決",
+        "nav.how":"使い方",
+        "nav.privacy":"プライバシー",
+        "nav.tools":"ツール",
+        "nav.faq":"FAQ",
+
+        "hero.title":"デジタルの整合性と継続性を、静かに保つ。",
+        "hero.desc":"静的ファイル1つでオフライン動作。重要な記録を残し、整合性ハッシュを生成し、必要なときにパッケージを出力します。クラウド同期なし。追跡なし。",
+        "hero.p1":"ブラウザにローカル保存",
+        "hero.p2":"ハッシュ付きJSON出力",
+        "hero.p3":"解析なし、追跡なし",
+        "hero.p4":"改ざん検知が簡単",
+        "hero.cta1":"記録ツールを開く",
+        "hero.cta2":"プライバシーを読む",
+        "hero.badge":"端末上でのみ実行",
+        "hero.note":"ヒント: 整合性チェック付きの構造化ログとして使ってください。",
+
+        "quick.t1":"構造化して記録",
+        "quick.d1":"出所、時間、要約、リンク、関係者。明確さが争いを減らします。",
+        "quick.t2":"整合性ハッシュ",
+        "quick.d2":"保存や共有後の変更を検知します。",
+        "quick.t3":"必要時に出力",
+        "quick.d3":"JSONを安全な場所に保管。出力はあなたが決めます。",
+        "quick.t4":"誇張しない",
+        "quick.d4":"自動検知や監視ではありません。記録と検証の補助です。",
+
+        "problem.title":"現実の課題",
+        "problem.hint":"デジタルの出来事から6-24か月後によく起こること。",
+        "problem.tag1":"文脈の喪失",
+        "problem.h1":"会話、メール、ファイル、リンクが散らばる",
+        "problem.p1":"後で証明するとき、出所や正しい版が分からなくなります。",
+        "problem.tag2":"編集されやすい",
+        "problem.h2":"スクリーンショットだけでは不十分",
+        "problem.p2":"切り抜きや編集、メタデータ消失で反論されやすいです。",
+        "problem.tag3":"漏えい",
+        "problem.h3":"クラウドが記録しすぎる",
+        "problem.p3":"便利でも痕跡が残り、原本の主導権を失う可能性があります。",
+
+        "solution.title":"Life Integrity の考え方",
+        "solution.hint":"軽量でも真剣に。",
+        "solution.tag1":"ローカル優先",
+        "solution.h1":"データは端末に残る",
+        "solution.p1":"ブラウザに保存され、外部へ送信しません。アカウント不要。",
+        "solution.tag2":"証拠ベース",
+        "solution.h2":"整合性チェック",
+        "solution.p2":"SHA-256で改ざん検知を簡単にします。",
+        "solution.tag3":"持ち運び",
+        "solution.h3":"長期保管できるJSON出力",
+        "solution.p3":"信頼できる場所に保管し、必要時に検証します。",
+
+        "how.title":"3ステップ",
+        "how.hint":"シンプルが継続につながります。",
+        "how.tag1":"ステップ1",
+        "how.h1":"記録を作成",
+        "how.p1":"要約、出所、時間、リンク。ファイルアップロード不要でメタデータ中心。",
+        "how.tag2":"ステップ2",
+        "how.h2":"ハッシュ生成",
+        "how.p2":"現在状態の指紋を固定します。",
+        "how.tag3":"ステップ3",
+        "how.h3":"パッケージ出力",
+        "how.p3":"JSONをダウンロードし、後で取り込み検証します。",
+
+        "privacy.title":"プライバシーの約束",
+        "privacy.hint":"明確に。",
+        "privacy.b1":"解析なし",
+        "privacy.b2":"追跡なし",
+        "privacy.b3":"CDNなし",
+        "privacy.b4":"外部ライブラリなし",
+        "privacy.b5":"オフライン対応",
+        "privacy.tag1":"保存",
+        "privacy.h1":"ローカル保存のみ",
+        "privacy.p1":"ブラウザに保存され、サイトデータ削除で消えます。",
+        "privacy.tag2":"出力",
+        "privacy.h2":"出力はあなた次第",
+        "privacy.p2":"自動出力なし。タイミングと保存先をあなたが決めます。",
+        "privacy.tag3":"限界",
+        "privacy.h3":"法的助言ではありません",
+        "privacy.p3":"記録と整合性検証の補助であり、法的助言を代替しません。",
+
+        "tools.title":"このページで動くツール",
+        "tools.hint":"記録、ハッシュ、出力。データはローカルに残ります。",
+
+        "tool1.title":"1) 整合性レコード作成",
+        "tool1.desc":"メタデータ入力、SHA-256生成、ローカル保存、必要時にJSON出力。",
+        "tool1.f1":"タイトル",
+        "tool1.f2":"出所",
+        "tool1.f3":"時間",
+        "tool1.f4":"参照リンク (任意)",
+        "tool1.f5":"メモ (具体的に)",
+        "tool1.btn1":"ハッシュ生成して保存",
+        "tool1.btn2":"フォームクリア",
+        "tool1.badge":"ローカル保存中 (localStorage)",
+
+        "tool2.title":"2) 記録一覧と出力",
+        "tool2.desc":"保存済み一覧、JSON出力、取り込み後にハッシュ検証。",
+        "tool2.btn1":"更新",
+        "tool2.btn2":"JSON出力",
+        "tool2.btn3":"ローカル削除",
+        "tool2.listLabel":"記録 (新しい順)",
+        "tool2.importLabel":"検証のためJSONを取り込む",
+        "tool2.btn4":"取り込みと検証",
+        "tool2.note":"注意: 取り込んだデータから再計算したハッシュを比較します。改ざんがあれば不一致になります。",
+
+        "faq.title":"FAQ",
+        "faq.hint":"よくある質問。",
+        "faq.q1":"データは外部に送られますか？",
+        "faq.a1":"いいえ。ブラウザにのみ保存されます。アップロード要求はありません(ダウンロードは利用者操作)。",
+        "faq.q2":"オフラインで使えますか？",
+        "faq.a2":"はい。静的ページで外部依存がありません。",
+        "faq.q3":"SHA-256とは？",
+        "faq.a3":"データの指紋です。1文字でも変わればハッシュが変わります。",
+        "faq.q4":"組織でも使えますか？",
+        "faq.a4":"はい。構造化記録と出力に有効です。大規模は内部システムに拡張可能です。",
+
+        "foot.local":"ローカル優先。プライバシー優先。追跡なし。",
+        "foot.top":"トップへ",
+        "foot.tip":"ヒント:",
+        "foot.tip2":"で保存してオフライン実行。"
+      }
+    };
+
+    const STORAGE_KEY = "life_integrity_records_v1";
+
+    function qs(sel, root=document){ return root.querySelector(sel); }
+    function qsa(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+
+    function getLangFromURL(){
+      const u = new URL(location.href);
+      const lang = (u.searchParams.get("lang") || "").toLowerCase();
+      return ["vi","en","ko","ja"].includes(lang) ? lang : null;
+    }
+
+    function setURLLang(lang){
+      try{
+        const u = new URL(location.href);
+        u.searchParams.set("lang", lang);
+        history.replaceState({}, "", u.toString());
+      }catch(_){}
+    }
+
+    function applyI18n(lang){
+      const dict = I18N[lang] || I18N.vi;
+      document.documentElement.setAttribute("lang", lang === "vi" ? "vi" : lang);
+      document.documentElement.dataset.lang = lang;
+
+      qsa("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const val = dict[key];
+        if(typeof val === "string") el.textContent = val;
+      });
+
+      qsa("[data-langbtn]").forEach(btn=>{
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-langbtn") === lang ? "true" : "false");
+      });
+
+      // Update title/description lightly for non-VI
+      if(lang !== "vi"){
+        const tMap = {
+          en: "Life Integrity Systems - Local-first integrity and continuity",
+          ko: "Life Integrity Systems - 로컬 우선 무결성 시스템",
+          ja: "Life Integrity Systems - ローカル優先の整合性システム"
+        };
+        document.title = tMap[lang] || document.title;
+      }else{
+        document.title = "Life Integrity Systems - Bảo toàn tính toàn vẹn và liên tục dữ liệu số";
+      }
+    }
+
+    function loadRecords(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if(!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr : [];
+      }catch(_){
+        return [];
+      }
+    }
+
+    function saveRecords(arr){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+    }
+
+    function nowISO(){
+      const d = new Date();
+      const pad = (n)=> String(n).padStart(2,"0");
+      const yyyy = d.getFullYear();
+      const mm = pad(d.getMonth()+1);
+      const dd = pad(d.getDate());
+      const hh = pad(d.getHours());
+      const mi = pad(d.getMinutes());
+      return `${yyyy}-${mm}-${dd}T${hh}:${mi}`;
+    }
+
+    async function sha256Hex(text){
+      const enc = new TextEncoder();
+      const data = enc.encode(text);
+      const hash = await crypto.subtle.digest("SHA-256", data);
+      const bytes = Array.from(new Uint8Array(hash));
+      return bytes.map(b=>b.toString(16).padStart(2,"0")).join("");
+    }
+
+    function stableStringify(obj){
+      const seen = new WeakSet();
+      const sorter = (v)=>{
+        if(v && typeof v === "object"){
+          if(seen.has(v)) return v;
+          seen.add(v);
+          if(Array.isArray(v)) return v.map(sorter);
+          const out = {};
+          Object.keys(v).sort().forEach(k=> out[k] = sorter(v[k]));
+          return out;
+        }
+        return v;
+      };
+      return JSON.stringify(sorter(obj));
+    }
+
+    function downloadJSON(filename, dataObj){
+      const blob = new Blob([JSON.stringify(dataObj, null, 2)], {type:"application/json"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function setText(id, text){
+      const el = qs(id);
+      if(el) el.textContent = text;
+    }
+
+    function renderRecords(){
+      const records = loadRecords();
+      setText("#recordsBox", JSON.stringify(records, null, 2));
+      return records;
+    }
+
+    function clearForm(){
+      qs("#recTitle").value = "";
+      qs("#recSource").value = "";
+      qs("#recTime").value = nowISO();
+      qs("#recLink").value = "";
+      qs("#recNote").value = "";
+      setText("#tool1Status", "");
+    }
+
+    async function createRecord(){
+      const title = qs("#recTitle").value.trim();
+      const source = qs("#recSource").value.trim();
+      const time = qs("#recTime").value.trim();
+      const link = qs("#recLink").value.trim();
+      const note = qs("#recNote").value.trim();
+
+      const lang = document.documentElement.dataset.lang || "vi";
+      const msgNeed = {
+        vi: "Vui lòng nhập ít nhất: Tiêu đề, Nguồn, Thời gian.",
+        en: "Please fill at least: Title, Source, Time.",
+        ko: "최소한 제목, 출처, 시간을 입력하세요.",
+        ja: "最低限、タイトル、出所、時間を入力してください。"
+      };
+
+      if(!title || !source || !time){
+        setText("#tool1Status", msgNeed[lang] || msgNeed.vi);
+        return;
+      }
+
+      const record = {
+        v: 1,
+        id: crypto.randomUUID ? crypto.randomUUID() : ("rec_" + Math.random().toString(16).slice(2)),
+        title,
+        source,
+        time,
+        link: link || null,
+        note: note || null,
+        createdAt: new Date().toISOString()
+      };
+
+      const canonical = stableStringify(record);
+      record.hash = await sha256Hex(canonical);
+
+      const records = loadRecords();
+      records.unshift(record);
+      saveRecords(records);
+
+      const okMsg = {
+        vi: "Đã lưu bản ghi và tạo hash.",
+        en: "Saved record and generated hash.",
+        ko: "기록이 저장되고 해시가 생성되었습니다.",
+        ja: "記録を保存し、ハッシュを生成しました。"
+      };
+      setText("#tool1Status", okMsg[lang] || okMsg.vi);
+      renderRecords();
+    }
+
+    async function exportPackage(){
+      const records = loadRecords();
+      const lang = document.documentElement.dataset.lang || "vi";
+      if(records.length === 0){
+        const msg = {
+          vi: "Chưa có bản ghi để xuất.",
+          en: "No records to export yet.",
+          ko: "내보낼 기록이 없습니다.",
+          ja: "出力する記録がありません。"
+        };
+        setText("#tool2Status", msg[lang] || msg.vi);
+        return;
+      }
+
+      const pkg = {
+        schema: "life-integrity-package",
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        recordCount: records.length,
+        records
+      };
+      const canonical = stableStringify(pkg);
+      pkg.packageHash = await sha256Hex(canonical);
+
+      const d = new Date();
+      const pad = (n)=> String(n).padStart(2,"0");
+      const fname = `life-integrity-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}.json`;
+      downloadJSON(fname, pkg);
+
+      const msg = {
+        vi: "Đã xuất gói JSON.",
+        en: "Exported JSON package.",
+        ko: "JSON 패키지를 내보냈습니다.",
+        ja: "JSONパッケージを出力しました。"
+      };
+      setText("#tool2Status", msg[lang] || msg.vi);
+    }
+
+    async function verifyImport(){
+      const file = qs("#importFile").files && qs("#importFile").files[0];
+      const lang = document.documentElement.dataset.lang || "vi";
+      if(!file){
+        const msg = {
+          vi: "Chọn file JSON trước.",
+          en: "Please choose a JSON file first.",
+          ko: "먼저 JSON 파일을 선택하세요.",
+          ja: "先にJSONファイルを選択してください。"
+        };
+        setText("#tool2Status", msg[lang] || msg.vi);
+        return;
+      }
+
+      let text = "";
+      try{
+        text = await file.text();
+      }catch(_){
+        setText("#tool2Status", "Cannot read file.");
+        return;
+      }
+
+      let obj;
+      try{
+        obj = JSON.parse(text);
+      }catch(_){
+        const msg = {
+          vi: "File không phải JSON hợp lệ.",
+          en: "Invalid JSON file.",
+          ko: "유효한 JSON이 아닙니다.",
+          ja: "有効なJSONではありません。"
+        };
+        setText("#tool2Status", msg[lang] || msg.vi);
+        return;
+      }
+
+      const result = {
+        ok: false,
+        checks: [],
+        importedAt: new Date().toISOString()
+      };
+
+      // Verify package hash if present
+      if(obj && typeof obj === "object" && obj.records && Array.isArray(obj.records)){
+        const copy = JSON.parse(JSON.stringify(obj));
+        const providedPkgHash = copy.packageHash || null;
+        delete copy.packageHash;
+
+        const recomputedPkgHash = await sha256Hex(stableStringify(copy));
+        if(providedPkgHash){
+          result.checks.push({
+            name: "packageHash",
+            provided: providedPkgHash,
+            recomputed: recomputedPkgHash,
+            match: providedPkgHash === recomputedPkgHash
+          });
+        }else{
+          result.checks.push({
+            name: "packageHash",
+            provided: null,
+            recomputed: recomputedPkgHash,
+            match: null
+          });
+        }
+
+        // Verify each record hash if present
+        const recChecks = [];
+        for(const r of obj.records){
+          const rr = JSON.parse(JSON.stringify(r));
+          const provided = rr.hash || null;
+          delete rr.hash;
+          const recomputed = await sha256Hex(stableStringify(rr));
+          recChecks.push({
+            id: r.id || null,
+            title: r.title || null,
+            provided,
+            recomputed,
+            match: provided ? (provided === recomputed) : null
+          });
+        }
+        result.checks.push({ name: "records", count: recChecks.length, items: recChecks });
+
+        // Overall ok: if packageHash exists and matches AND all record hashes (that exist) match
+        const pkgOk = result.checks[0].match === true || result.checks[0].match === null;
+        let recOk = true;
+        for(const it of recChecks){
+          if(it.match === false) { recOk = false; break; }
+        }
+        result.ok = pkgOk && recOk;
+      }else{
+        result.checks.push({ name:"format", match:false, note:"Missing records array" });
+        result.ok = false;
+      }
+
+      qs("#verifyBox").textContent = JSON.stringify(result, null, 2);
+
+      const msgOK = {
+        vi: result.ok ? "Kiểm tra xong. Không thấy dấu hiệu thay đổi (theo hash)." : "Kiểm tra xong. Có điểm không khớp hash.",
+        en: result.ok ? "Verification done. No hash mismatch detected." : "Verification done. Hash mismatch found.",
+        ko: result.ok ? "검증 완료. 해시 불일치가 없습니다." : "검증 완료. 해시 불일치가 있습니다.",
+        ja: result.ok ? "検証完了。ハッシュ不一致は見つかりません。" : "検証完了。ハッシュ不一致があります。"
+      };
+      setText("#tool2Status", msgOK[lang] || msgOK.vi);
+    }
+
+    function wipeLocal(){
+      const lang = document.documentElement.dataset.lang || "vi";
+      localStorage.removeItem(STORAGE_KEY);
+      renderRecords();
+      qs("#verifyBox").textContent = "{}";
+      const msg = {
+        vi: "Đã xóa dữ liệu cục bộ.",
+        en: "Local data cleared.",
+        ko: "로컬 데이터가 삭제되었습니다.",
+        ja: "ローカルデータを削除しました。"
+      };
+      setText("#tool2Status", msg[lang] || msg.vi);
+    }
+
+    function wire(){
+      qs("#year").textContent = String(new Date().getFullYear());
+      qs("#recTime").value = nowISO();
+      renderRecords();
+
+      qsa("[data-scrollto]").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const target = btn.getAttribute("data-scrollto");
+          const el = qs(target);
+          if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+      });
+
+      qsa("[data-langbtn]").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const lang = btn.getAttribute("data-langbtn");
+          applyI18n(lang);
+          setURLLang(lang);
+        });
+      });
+
+      qs("#btnCreate").addEventListener("click", createRecord);
+      qs("#btnClear").addEventListener("click", clearForm);
+      qs("#btnRefresh").addEventListener("click", renderRecords);
+      qs("#btnExport").addEventListener("click", exportPackage);
+      qs("#btnVerifyImport").addEventListener("click", verifyImport);
+      qs("#btnWipe").addEventListener("click", wipeLocal);
+
+      // Basic safety: prevent accidental form submission
+      document.addEventListener("submit", (e)=> e.preventDefault());
+    }
+
+    (function init(){
+      wire();
+      const lang = getLangFromURL() || "vi";
+      applyI18n(lang);
+    })();
+  </script>
 </body>
 </html>
