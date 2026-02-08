@@ -70,7 +70,7 @@
 
     a{ color:var(--accent); text-decoration:none; }
     a:hover{ text-decoration:underline; }
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
       outline: 3px solid rgba(15, 95, 255, 0.35);
       outline-offset:2px;
       border-radius:12px;
@@ -615,6 +615,7 @@
           <a href="#privacy" data-nav="privacy" data-i18n="nav.privacy">Riêng tư</a>
           <a href="#usecases" data-nav="usecases" data-i18n="nav.usecases">Tình huống</a>
           <a href="#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+          <a href="#tool" data-nav="tool" data-i18n="nav.tool">Công cụ</a>
         </div>
       </nav>
 
@@ -874,6 +875,7 @@
           <span class="badge" data-i18n="privacy.badge3">Không quảng cáo</span>
           <span class="badge muted" data-i18n="privacy.badge4">Chạy offline</span>
           <span class="badge muted" data-i18n="privacy.badge5">Local-first</span>
+          <span class="badge muted" data-i18n="privacy.badge6">Có chế độ dự phòng</span>
         </div>
 
         <div class="privacyGrid" aria-label="Chi tiết riêng tư">
@@ -904,6 +906,16 @@
               <li data-i18n="privacy.sec2">Không có tài khoản, không có mật khẩu trên trang</li>
               <li data-i18n="privacy.sec3">Hash giúp phát hiện thay đổi của gói dữ liệu đã xuất</li>
               <li data-i18n="privacy.sec4">Bạn có thể đặt file sao lưu trong nơi lưu trữ bạn tin tưởng</li>
+            </ul>
+          </div>
+
+          <div class="miniCard">
+            <h4 data-i18n="privacy.fallbackTitle">Khi trình duyệt chặn IndexedDB</h4>
+            <ul>
+              <li data-i18n="privacy.fb1">Hệ thống tự chuyển sang lưu trữ dự phòng (LocalStorage)</li>
+              <li data-i18n="privacy.fb2">Một số trình duyệt/Private Mode có thể chặn hoàn toàn lưu trữ cục bộ</li>
+              <li data-i18n="privacy.fb3">Nếu bị chặn, hãy tắt Private Mode hoặc cho phép lưu trữ cho trang</li>
+              <li data-i18n="privacy.fb4">Vẫn nên xuất file sao lưu để tránh mất dữ liệu</li>
             </ul>
           </div>
         </div>
@@ -952,7 +964,7 @@
         <article class="card split" role="listitem">
           <h3 data-i18n="use.u3.title">Người làm việc độc lập</h3>
           <p data-i18n="use.u3.desc">
-            Ghi nhận yêu cầu, quyết định             và mốc bàn giao. Khi có hiểu nhầm, bạn có lịch sử rõ để đối chiếu mà không cần tranh cãi cảm tính.
+            Ghi nhận yêu cầu, quyết định, phiên bản tài liệu, và mốc bàn giao. Khi có hiểu nhầm, bạn có lịch sử rõ để đối chiếu mà không cần tranh cãi cảm tính.
           </p>
           <ul class="list">
             <li data-i18n="use.u3.li1">Timeline dự án theo khách hàng</li>
@@ -1227,813 +1239,214 @@
               <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
                 <strong data-i18n="tool.stats.title">Thống kê cục bộ</strong>
                 <span class="pill" id="statCount">0</span>
-              </div>
-              <div style="color:var(--muted); margin-top:6px;" id="statHint" data-i18n="tool.stats.hint">Số ghi nhận đang lưu trong trình duyệt.</div>
+                <span class="pill" id="statMode" style="display:none;"></span>
+             bị thay đổi sau khi lưu trữ hoặc chia sẻ.</p>
             </div>
-
-            <div id="entries" class="grid" style="gap:10px;" aria-label="Danh sách ghi nhận"></div>
           </div>
-        </article>
+
+          <div class="mini">
+            <div class="ic" aria-hidden="true">LF</div>
+            <div>
+              <h3 data-i18n="hero.mini3.title">Local-first</h3>
+              <p data-i18n="hero.mini3.desc">Dữ liệu nằm trong trình duyệt của bạn. Không máy chủ, không đồng bộ ngầm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" aria-labelledby="problem-title">
+      <div class="sectionTitle">
+        <h2 id="problem-title" data-i18n="problem.title">Vấn đề thường gặp trong tính toàn vẹn số</h2>
+        <p class="sub" data-i18n="problem.lead">
+          Phần lớn rủi ro không đến từ bị hack, mà đến từ việc thiếu ghi nhận, thiếu bối cảnh và không chứng minh lại được điều đã xảy ra.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card split">
+          <h3 data-i18n="problem.card1.title">Dữ liệu rời rạc, thiếu liên tục</h3>
+          <p data-i18n="problem.card1.desc">
+            Email, chat, file, link, ảnh chụp màn hình nằm khắp nơi. Khi cần tổng hợp lại, mọi thứ trở nên chậm và dễ sai.
+          </p>
+          <ul class="list">
+            <li data-i18n="problem.card1.li1">Mất dấu chuỗi sự kiện theo thời gian</li>
+            <li data-i18n="problem.card1.li2">Thiếu nguồn gốc hoặc phiên bản</li>
+            <li data-i18n="problem.card1.li3">Khó bàn giao cho người khác</li>
+          </ul>
+        </div>
+
+        <div class="card split">
+          <h3 data-i18n="problem.card2.title">Không có bằng chứng kiểm tra được</h3>
+          <p data-i18n="problem.card2.desc">
+            Ghi chú thủ công hoặc file rời không đủ để chứng minh tính toàn vẹn khi có tranh chấp hoặc cần rà soát.
+          </p>
+          <ul class="list">
+            <li data-i18n="problem.card2.li1">Không biết dữ liệu đã bị sửa chưa</li>
+            <li data-i18n="problem.card2.li2">Không có dấu vân tay để đối chiếu</li>
+            <li data-i18n="problem.card2.li3">Khó tạo gói chia sẻ đáng tin</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="solution" aria-labelledby="solution-title">
+      <div class="sectionTitle">
+        <h2 id="solution-title" data-i18n="solution.title">Giải pháp của Life Integrity Systems</h2>
+        <p class="sub" data-i18n="solution.lead">
+          Một hệ thống đơn giản, cục bộ, giúp bạn ghi nhận đúng, giữ liên tục và xuất bằng chứng khi cần.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card third">
+          <h3 data-i18n="solution.card1.title">Ghi nhận có cấu trúc</h3>
+          <p data-i18n="solution.card1.desc">
+            Mỗi sự kiện đều có thời gian, nguồn, mô tả và metadata đi kèm.
+          </p>
+        </div>
+
+        <div class="card third">
+          <h3 data-i18n="solution.card2.title">Kiểm tra tính toàn vẹn</h3>
+          <p data-i18n="solution.card2.desc">
+            Gói dữ liệu xuất ra có hash để kiểm tra không bị thay đổi.
+          </p>
+        </div>
+
+        <div class="card third">
+          <h3 data-i18n="solution.card3.title">Local-first & offline</h3>
+          <p data-i18n="solution.card3.desc">
+            Không phụ thuộc máy chủ. Dùng được cả khi mất mạng.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" aria-labelledby="how-title">
+      <div class="sectionTitle">
+        <h2 id="how-title" data-i18n="how.title">Cách hệ thống hoạt động</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3 data-i18n="how.step1.title">Ghi nhận</h3>
+            <p data-i18n="how.step1.desc">Bạn nhập sự kiện, bối cảnh và nguồn liên quan.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3 data-i18n="how.step2.title">Lưu cục bộ</h3>
+            <p data-i18n="how.step2.desc">Dữ liệu được lưu trong trình duyệt của bạn.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3 data-i18n="how.step3.title">Xuất gói</h3>
+            <p data-i18n="how.step3.desc">Khi cần, bạn xuất JSON kèm hash để đối chiếu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy" aria-labelledby="privacy-title">
+      <div class="sectionTitle">
+        <h2 id="privacy-title" data-i18n="privacy.title">Riêng tư và niềm tin</h2>
+      </div>
+
+      <div class="privacyBox">
+        <div class="badgeRow">
+          <span class="badge">No tracking</span>
+          <span class="badge">No analytics</span>
+          <span class="badge">Local-first</span>
+          <span class="badge muted">Offline-capable</span>
+        </div>
+
+        <div class="privacyGrid">
+          <div class="miniCard">
+            <h4 data-i18n="privacy.notCollect.title">Chúng tôi KHÔNG thu thập</h4>
+            <ul>
+              <li data-i18n="privacy.notCollect.li1">Dữ liệu cá nhân</li>
+              <li data-i18n="privacy.notCollect.li2">Hành vi sử dụng</li>
+              <li data-i18n="privacy.notCollect.li3">Cookie theo dõi</li>
+            </ul>
+          </div>
+
+          <div class="miniCard">
+            <h4 data-i18n="privacy.collect.title">Hệ thống chỉ lưu</h4>
+            <ul>
+              <li data-i18n="privacy.collect.li1">Những gì bạn tự nhập</li>
+              <li data-i18n="privacy.collect.li2">Trong trình duyệt của bạn</li>
+              <li data-i18n="privacy.collect.li3">Cho đến khi bạn xóa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="sectionTitle">
+        <h2 id="faq-title" data-i18n="faq.title">Câu hỏi thường gặp</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary data-i18n="faq.q1">Trang này có gửi dữ liệu của tôi đi đâu không?</summary>
+          <p data-i18n="faq.a1">Không. Mọi dữ liệu nằm trong trình duyệt của bạn.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q2">Nếu tôi xóa trình duyệt thì sao?</summary>
+          <p data-i18n="faq.a2">Dữ liệu cũng sẽ mất. Hãy xuất gói JSON để sao lưu.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="faq.q3">Có cần đăng ký tài khoản không?</summary>
+          <p data-i18n="faq.a3">Không cần. Trang hoạt động hoàn toàn cục bộ.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section aria-label="Hành động">
+      <div class="ctaCard">
+        <h2 data-i18n="cta.title">Bạn có thể bắt đầu ngay</h2>
+        <p data-i18n="cta.desc">
+          Không cần đăng ký. Không cần cài đặt. Chỉ cần bắt đầu ghi nhận để giữ sự rõ ràng cho tương lai.
+        </p>
+        <div class="heroActions">
+          <a class="btn primary" href="#tool" data-i18n="cta.primary">Mở công cụ ghi nhận</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer aria-label="Chân trang">
+  <footer>
     <div class="wrap footGrid">
       <div>
-        <div class="footLinks" aria-label="Liên kết chính sách">
-          <a href="#" aria-disabled="true" data-i18n="footer.policy">Chính sách</a>
-          <a href="#" aria-disabled="true" data-i18n="footer.privacy">Riêng tư</a>
-          <a href="#" aria-disabled="true" data-i18n="footer.terms">Điều khoản</a>
-          <a href="#" aria-disabled="true" data-i18n="footer.security">Bảo mật</a>
-        </div>
-        <div class="copy" style="margin-top:10px;">
-          <span>© </span><span id="year"></span><span> Life Integrity Systems. </span>
-          <span data-i18n="footer.copy">Tất cả quyền được bảo lưu. Trang tĩnh, hoạt động offline, không theo dõi.</span>
+        <div class="footLinks">
+          <a href="#" aria-disabled="true">Privacy Policy</a>
+          <a href="#" aria-disabled="true">Terms</a>
         </div>
       </div>
       <div class="copy">
-        <div><strong data-i18n="footer.noteTitle">Ghi chú</strong></div>
-        <div style="margin-top:6px;" data-i18n="footer.noteText">
-          Nội dung trên trang mang tính hướng dẫn sử dụng hệ thống ghi nhận và kiểm tra tính toàn vẹn dữ liệu. Không phải tư vấn pháp lý hay cam kết bảo đảm.
-        </div>
+        © <span id="year"></span> Life Integrity Systems
       </div>
     </div>
   </footer>
 
   <script>
-    (function(){
-      "use strict";
-
-      // ===== Basics =====
-      const $ = (sel, root=document) => root.querySelector(sel);
-      const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-      $("#year").textContent = String(new Date().getFullYear());
-
-      // ===== i18n (VI complete, others ready) =====
-      const I18N = {
-        vi: {
-          "header.tagline":"Bình tĩnh. Rõ ràng. Tôn trọng riêng tư.",
-          "nav.problem":"Vấn đề",
-          "nav.solution":"Giải pháp",
-          "nav.how":"Cách hoạt động",
-          "nav.capabilities":"Năng lực",
-          "nav.privacy":"Riêng tư",
-          "nav.usecases":"Tình huống",
-          "nav.faq":"FAQ",
-
-          "hero.kicker":"Hệ thống giữ tính toàn vẹn và liên tục trong đời sống số",
-          "hero.title":"Giữ dữ liệu rõ ràng, có bằng chứng, và thuộc quyền kiểm soát của bạn",
-          "hero.lead":"Life Integrity Systems giúp bạn ghi nhận sự kiện số, lưu trữ có cấu trúc, tạo dấu vân tay kiểm tra tính toàn vẹn, và xuất gói dữ liệu khi cần. Trang hoạt động offline, không theo dõi, không analytics.",
-          "hero.ctaPrimary":"Xem hệ thống giải quyết gì",
-          "hero.ctaSecondary":"Đọc cam kết riêng tư",
-          "hero.mini1.title":"Ghi nhận có cấu trúc",
-          "hero.mini1.desc":"Sự kiện, nguồn, thời gian, bối cảnh, liên kết và metadata, để sau này tra cứu không mơ hồ.",
-          "hero.mini2.title":"Dấu vân tay kiểm tra",
-          "hero.mini2.desc":"Tạo hash cho gói xuất (JSON) để kiểm tra nội dung không bị thay đổi về sau.",
-          "hero.mini3.title":"Local-first, dùng offline",
-          "hero.mini3.desc":"Lưu cục bộ trong trình duyệt. Bạn chỉ xuất file khi bạn chủ động.",
-
-          "problem.title":"Vấn đề thường gặp trong tính toàn vẹn số",
-          "problem.sub":"Nhiều rủi ro không đến từ “bị hack”, mà đến từ việc thiếu ghi nhận, thiếu bối cảnh, và thiếu khả năng chứng minh lại điều đã xảy ra.",
-          "problem.p1.title":"Dữ liệu rải rác, thiếu liên tục",
-          "problem.p1.desc":"Email, chat, file, link, ghi chú, ảnh chụp màn hình nằm khắp nơi. Khi cần tổng hợp, mọi thứ trở nên chậm và dễ sai.",
-          "problem.p1.li1":"Mất dấu chuỗi sự kiện theo thời gian",
-          "problem.p1.li2":"Thiếu nguồn gốc hoặc phiên bản",
-          "problem.p1.li3":"Khó bàn giao cho người khác trong nhóm",
-          "problem.p2.title":"Bằng chứng yếu vì thiếu cấu trúc",
-          "problem.p2.desc":"Chụp màn hình không kèm bối cảnh, link bị đổi, file bị đổi tên. Sau vài tuần, chính bạn cũng khó xác minh.",
-          "problem.p2.li1":"Không biết “bản nào là bản cuối”",
-          "problem.p2.li2":"Thiếu mô tả hành động và quyết định",
-          "problem.p2.li3":"Khó chứng minh tính toàn vẹn của gói dữ liệu",
-          "problem.p3.title":"Niềm tin nội bộ suy giảm",
-          "problem.p3.desc":"Khi không có nhật ký rõ ràng, tranh cãi “ai nói gì, khi nào, vì sao” dễ xảy ra, nhất là trong nhóm nhỏ.",
-          "problem.p3.p1":"Tốn thời gian xác minh",
-          "problem.p3.p2":"Sai lệch trách nhiệm",
-          "problem.p3.p3":"Giảm hiệu suất phối hợp",
-          "problem.p4.title":"Chia sẻ quá mức với dịch vụ bên ngoài",
-          "problem.p4.desc":"Nhiều công cụ miễn phí “đổi dữ liệu lấy tiện lợi”. Điều này tạo rủi ro riêng tư và lệ thuộc nền tảng.",
-          "problem.p4.p1":"Theo dõi hành vi",
-          "problem.p4.p2":"Rò rỉ thông tin",
-          "problem.p4.p3":"Khóa nền tảng",
-          "problem.p5.title":"Bảo toàn bằng chứng khi có sự cố",
-          "problem.p5.desc":"Khi xảy ra tranh chấp, lừa đảo, giả mạo, hoặc hiểu nhầm, việc tổng hợp bằng chứng thường diễn ra muộn và thiếu nhất quán.",
-          "problem.p5.p1":"Thiếu timeline",
-          "problem.p5.p2":"Thiếu mô tả",
-          "problem.p5.p3":"Thiếu kiểm tra toàn vẹn",
-
-          "solution.title":"Giải pháp: giữ “đúng - đủ - kiểm tra được”",
-          "solution.sub":"Life Integrity Systems tập trung vào ba điều: ghi nhận có cấu trúc, lưu cục bộ trong quyền kiểm soát, và xuất gói dữ liệu có dấu vân tay để kiểm tra tính toàn vẹn.",
-          "solution.s1.title":"Ghi nhận sự kiện theo chuẩn “liên tục”",
-          "solution.s1.desc":"Mỗi ghi nhận là một mẩu “nhật ký có chứng cứ”: thời gian, nguồn, mô tả, bối cảnh, mức độ nhạy cảm, và liên kết/metadata. Mục tiêu là sau 3 tháng vẫn hiểu được như lúc tạo.",
-          "solution.s2.title":"Tách dữ liệu khỏi cảm tính",
-          "solution.s2.desc":"Hệ thống giúp bạn phân biệt: điều đã xảy ra (fact), cảm nhận (note), và hành động tiếp theo (next). Khi cần bàn giao hoặc xem lại, mọi thứ ít tranh cãi hơn.",
-          "solution.s3.title":"Xuất gói dữ liệu và kiểm tra toàn vẹn",
-          "solution.s3.desc":"Khi cần chia sẻ, bạn xuất một gói JSON. Hệ thống tạo hash (SHA-256) để đối chiếu. Hash không “bảo đảm pháp lý”, nhưng giúp kiểm tra file có bị thay đổi.",
-          "solution.s4.title":"Calm by design",
-          "solution.s4.desc":"Không có thông báo gây nghiện, không có thúc ép. Giao diện ưu tiên đọc, ghi nhanh, và tìm lại. Bạn dùng khi cần, không phải khi bị kéo vào.",
-          "solution.noteStrong":"Lưu ý trung thực:",
-          "solution.noteText":"Đây là công cụ hỗ trợ ghi nhận và kiểm tra tính toàn vẹn dữ liệu. Nó không thay thế tư vấn pháp lý, không tự động xác định đúng sai, và không đưa ra bảo đảm.",
-
-          "how.title":"Cách hoạt động trong 3 bước",
-          "how.sub":"Một quy trình đơn giản để dùng mỗi ngày, và đủ chặt để dùng khi có sự cố.",
-          "how.h1.title":"Tạo ghi nhận",
-          "how.h1.desc":"Ghi sự kiện, nguồn, mô tả và mức độ nhạy cảm. Đính kèm link hoặc metadata của file (không bắt buộc).",
-          "how.h2.title":"Tìm lại theo ngữ cảnh",
-          "how.h2.desc":"Lọc theo tag, loại sự kiện, thời gian, hoặc từ khóa. Mục tiêu: tìm đúng thứ bạn cần trong vài giây.",
-          "how.h3.title":"Xuất gói và tạo hash",
-          "how.h3.desc":"Xuất gói JSON. Hệ thống tạo SHA-256 để bạn lưu riêng và đối chiếu khi cần kiểm tra tính toàn vẹn.",
-
-          "cap.title":"Năng lực cốt lõi",
-          "cap.sub":"Tập trung vào các chức năng cần thiết, tránh phình to. Mọi thứ chạy trong một trang tĩnh.",
-          "cap.c1.title":"Kho ghi nhận cục bộ",
-          "cap.c1.desc":"Lưu trong trình duyệt (IndexedDB). Bạn có thể dùng offline, và dữ liệu không tự rời khỏi thiết bị.",
-          "cap.c2.title":"Tag và phân loại",
-          "cap.c2.desc":"Gắn tag theo dự án, người liên quan, hoặc loại sự cố. Hỗ trợ lọc nhanh và giảm lẫn lộn.",
-          "cap.c3.title":"Timeline rõ ràng",
-          "cap.c3.desc":"Sắp xếp theo thời gian và nguồn. Có thể chọn “thời điểm xảy ra” khác với “thời điểm ghi nhận”.",
-          "cap.c4.title":"Xuất và nhập JSON",
-          "cap.c4.desc":"Tạo bản sao lưu có thể mang đi. Nhập lại để khôi phục khi đổi máy hoặc trình duyệt.",
-          "cap.c5.title":"Hash toàn vẹn",
-          "cap.c5.desc":"Tạo SHA-256 cho gói xuất để đối chiếu. Hash hiển thị rõ và có thể sao chép.",
-          "cap.c6.title":"Chế độ “chia sẻ tối thiểu”",
-          "cap.c6.desc":"Bạn có thể xuất gói đã rút gọn: chỉ fact + timeline + hash, không kèm ghi chú nhạy cảm.",
-
-          "privacy.title":"Riêng tư và niềm tin",
-          "privacy.sub":"Trang này được thiết kế để vận hành mà không cần theo dõi bạn. Những gì không thu thập quan trọng không kém những gì có.",
-          "privacy.badge1":"Không analytics",
-          "privacy.badge2":"Không tracker",
-          "privacy.badge3":"Không quảng cáo",
-          "privacy.badge4":"Chạy offline",
-          "privacy.badge5":"Local-first",
-          "privacy.notCollectedTitle":"Không thu thập",
-          "privacy.not1":"Không thu thập hành vi sử dụng, lượt xem, click",
-          "privacy.not2":"Không thu thập vị trí, danh bạ, danh tính",
-          "privacy.not3":"Không gắn cookie theo dõi, không pixel",
-          "privacy.not4":"Không gửi dữ liệu ra ngoài tự động",
-          "privacy.localTitle":"Lưu cục bộ nghĩa là",
-          "privacy.local1":"Dữ liệu nằm trong trình duyệt của bạn (IndexedDB)",
-          "privacy.local2":"Nếu xóa dữ liệu trình duyệt, dữ liệu có thể mất",
-          "privacy.local3":"Bạn nên xuất file sao lưu định kỳ nếu cần",
-          "privacy.local4":"Bạn kiểm soát việc chia sẻ bằng thao tác xuất",
-          "privacy.securityTitle":"Bảo mật ở mức trang tĩnh",
-          "privacy.sec1":"Không phụ thuộc thư viện ngoài, giảm bề mặt tấn công",
-          "privacy.sec2":"Không có tài khoản, không có mật khẩu trên trang",
-          "privacy.sec3":"Hash giúp phát hiện thay đổi của gói dữ liệu đã xuất",
-          "privacy.sec4":"Bạn có thể đặt file sao lưu trong nơi lưu trữ bạn tin tưởng",
-          "privacy.noteStrong":"Giới hạn cần hiểu:",
-          "privacy.noteText":"Vì đây là website tĩnh chạy trong trình duyệt, an toàn còn phụ thuộc vào thiết bị của bạn. Nếu máy tính bị nhiễm mã độc, không có công cụ nào bảo đảm tuyệt đối.",
-
-          "use.title":"Tình huống sử dụng thực tế",
-          "use.sub":"Bốn ngữ cảnh phổ biến. Mục tiêu là giảm mơ hồ và tăng khả năng bàn giao.",
-          "use.u1.title":"Cá nhân",
-          "use.u1.desc":"Lưu nhật ký sự kiện quan trọng: thay đổi tài khoản, cập nhật giấy tờ, giao dịch, liên hệ. Khi cần đối chiếu, bạn có timeline rõ và có thể xuất gói dữ liệu.",
-          "use.u1.li1":"Theo dõi thay đổi thông tin đăng nhập và quyền truy cập",
-          "use.u1.li2":"Ghi nhận sự cố và cách xử lý để tránh lặp lại",
-          "use.u1.li3":"Sao lưu định kỳ, tự chủ dữ liệu",
-          "use.u2.title":"Gia đình",
-          "use.u2.desc":"Tạo hồ sơ theo thành viên hoặc theo chủ đề: nhà cửa, học tập, sức khỏe, giấy tờ. Lưu “đường dây” sự kiện để cả nhà thống nhất thông tin.",
-          "use.u2.li1":"Lịch sử sửa chữa, bảo hành, hợp đồng",
-          "use.u2.li2":"Thông tin liên hệ khẩn cấp và ghi chú",
-          "use.u2.li3":"Bàn giao rõ khi có người mới phụ trách",
-          "use.u3.title":"Người làm việc độc lập",
-          "use.u3.desc":"Ghi nhận yêu cầu, quyết định, phiên bản tài liệu, và mốc bàn giao. Khi có hiểu nhầm, bạn có lịch sử rõ để đối chiếu mà không cần tranh cãi cảm tính.",
-          "use.u3.li1":"Timeline dự án theo khách hàng",
-          "use.u3.li2":"Ghi nhận thay đổi phạm vi và xác nhận",
-          "use.u3.li3":"Xuất gói bàn giao tối thiểu",
-          "use.u4.title":"Tổ chức nhỏ",
-          "use.u4.desc":"Dùng như “sổ tay toàn vẹn” cho vận hành: quyết định, rủi ro, thay đổi hệ thống, sự cố và cách khắc phục. Tối ưu cho nhóm cần rõ ràng nhưng không muốn bị theo dõi.",
-          "use.u4.li1":"Nhật ký thay đổi và lý do",
-          "use.u4.li2":"Gói bàn giao khi đổi người phụ trách",
-          "use.u4.li3":"Lưu cục bộ theo máy hoặc theo phòng ban",
-
-          "faq.title":"FAQ",
-          "faq.sub":"Câu trả lời ngắn gọn, trung thực, theo hướng dùng được ngay.",
-          "faq.q1":"Trang này có cần đăng ký tài khoản không?",
-          "faq.a1":"Không. Trang tĩnh không có đăng ký, không có đăng nhập. Dữ liệu lưu cục bộ trong trình duyệt của bạn.",
-          "faq.q2":"Tôi có thể dùng trên điện thoại không?",
-          "faq.a2":"Có. Giao diện responsive. Tuy nhiên, để sao lưu và quản lý file xuất, máy tính thường thuận tiện hơn.",
-          "faq.q3":"Hash SHA-256 dùng để làm gì?",
-          "faq.a3":"Hash giúp kiểm tra file gói dữ liệu (JSON) có bị thay đổi hay không. Nếu nội dung đổi, hash sẽ khác. Hash không xác định “ai đúng ai sai”, chỉ kiểm tra tính toàn vẹn của file.",
-          "faq.q4":"Nếu tôi mất máy hoặc xóa dữ liệu trình duyệt thì sao?",
-          "faq.a4":"Bạn có thể mất dữ liệu nếu không sao lưu. Vì vậy nên xuất gói JSON định kỳ và lưu ở nơi bạn kiểm soát (ổ cứng, kho lưu trữ riêng).",
-          "faq.q5":"Trang này có gửi dữ liệu ra internet không?",
-          "faq.a5":"Không tự động. Không có analytics, tracker, quảng cáo. Dữ liệu chỉ rời khỏi thiết bị khi bạn chủ động xuất file.",
-          "faq.q6":"Tôi có thể nhập dữ liệu từ nơi khác không?",
-          "faq.a6":"Bạn có thể nhập lại gói JSON do chính hệ thống xuất ra. Nếu muốn nhập từ định dạng khác, bạn cần chuyển đổi về cấu trúc tương thích.",
-
-          "cta.title":"Nếu bạn muốn thử ngay",
-          "cta.desc":"Bạn có thể bắt đầu bằng 3 ghi nhận nhỏ: một sự kiện đã xảy ra, một quyết định bạn đã chốt, và một rủi ro bạn muốn nhớ. Sau đó xuất gói JSON để xem quy trình hoạt động.",
-          "cta.btn":"Mở công cụ ghi nhận",
-          "cta.btn2":"Xem lại cam kết riêng tư",
-
-          "tool.title":"Công cụ ghi nhận cục bộ",
-          "tool.sub":"Dữ liệu lưu trong trình duyệt. Bạn có thể xuất và nhập để sao lưu. Không có gửi dữ liệu ra ngoài.",
-          "tool.newTitle":"Tạo ghi nhận",
-          "tool.fields.title":"Tiêu đề",
-          "tool.fields.type":"Loại",
-          "tool.fields.sensitivity":"Mức nhạy cảm",
-          "tool.fields.occurredAt":"Thời điểm xảy ra",
-          "tool.fields.occurredHint":"Có thể khác với thời điểm bạn ghi nhận. Nếu bỏ trống, hệ thống dùng thời điểm tạo.",
-          "tool.fields.source":"Nguồn",
-          "tool.fields.tags":"Tag (phân tách bằng dấu phẩy)",
-          "tool.fields.fact":"Nội dung (fact)",
-          "tool.fields.note":"Ghi chú (note)",
-          "tool.fields.next":"Hành động tiếp theo (next)",
-          "tool.fields.links":"Liên kết tham chiếu (mỗi dòng 1 link, tùy chọn)",
-          "tool.type.event":"Sự kiện",
-          "tool.type.decision":"Quyết định",
-          "tool.type.risk":"Rủi ro",
-          "tool.type.handoff":"Bàn giao",
-          "tool.type.note":"Ghi chú",
-          "tool.sens.low":"Thấp",
-          "tool.sens.medium":"Trung bình",
-          "tool.sens.high":"Cao",
-          "tool.actions.save":"Lưu ghi nhận",
-          "tool.actions.reset":"Xóa form",
-          "tool.libTitle":"Kho ghi nhận",
-          "tool.libSub":"Tìm nhanh, lọc theo loại, tag, hoặc thời gian.",
-          "tool.lib.search":"Tìm kiếm",
-          "tool.lib.filterType":"Lọc theo loại",
-          "tool.lib.filterSens":"Lọc theo nhạy cảm",
-          "tool.lib.any":"Tất cả",
-          "tool.lib.refresh":"Tải lại",
-          "tool.export.full":"Xuất gói đầy đủ",
-          "tool.export.min":"Xuất gói tối thiểu",
-          "tool.export.hashLabel":"SHA-256 (hash của gói xuất):",
-          "tool.export.copyHash":"Sao chép hash",
-          "tool.export.download":"Tải file JSON",
-          "tool.export.note":"Hash giúp kiểm tra file có bị thay đổi. Bạn có thể lưu hash riêng (ghi chú, email nội bộ, hoặc nơi bạn tin tưởng).",
-          "tool.import.title":"Nhập gói JSON",
-          "tool.import.desc":"Chỉ nhập file do chính hệ thống xuất ra. Bạn có thể chọn “Hợp nhất” (merge) hoặc “Thay thế” (replace).",
-          "tool.import.mode":"Chế độ nhập",
-          "tool.import.merge":"Hợp nhất (giữ dữ liệu hiện có)",
-          "tool.import.replace":"Thay thế (xóa rồi nhập)",
-          "tool.import.file":"Chọn file JSON",
-          "tool.import.btn":"Nhập dữ liệu",
-          "tool.danger.clearAll":"Xóa toàn bộ dữ liệu cục bộ",
-          "tool.stats.title":"Thống kê cục bộ",
-          "tool.stats.hint":"Số ghi nhận đang lưu trong trình duyệt.",
-
-          "footer.policy":"Chính sách",
-          "footer.privacy":"Riêng tư",
-          "footer.terms":"Điều khoản",
-          "footer.security":"Bảo mật",
-          "footer.copy":"Tất cả quyền được bảo lưu. Trang tĩnh, hoạt động offline, không theo dõi.",
-          "footer.noteTitle":"Ghi chú",
-          "footer.noteText":"Nội dung trên trang mang tính hướng dẫn sử dụng hệ thống ghi nhận và kiểm tra tính toàn vẹn dữ liệu. Không phải tư vấn pháp lý hay cam kết bảo đảm.",
-
-          "sys.toast.saved":"Đã lưu ghi nhận.",
-          "sys.toast.missingTitle":"Vui lòng nhập tiêu đề.",
-          "sys.toast.savedFailed":"Không thể lưu. Hãy thử lại.",
-          "sys.toast.cleared":"Đã xóa form.",
-          "sys.toast.noData":"Chưa có dữ liệu để xuất.",
-          "sys.toast.hashCopied":"Đã sao chép hash.",
-          "sys.toast.importSelect":"Vui lòng chọn file JSON.",
-          "sys.toast.importOk":"Nhập dữ liệu thành công.",
-          "sys.toast.importFailed":"Không thể nhập. File không đúng định dạng hoặc bị lỗi.",
-          "sys.toast.clearedAll":"Đã xóa toàn bộ dữ liệu cục bộ.",
-          "sys.toast.confirmClear":"Hành động này sẽ xóa toàn bộ dữ liệu cục bộ trong trình duyệt. Bạn có chắc không?"
-        },
-        en: {
-          "header.tagline":"Calm. Clear. Privacy-respecting.",
-          "nav.problem":"Problem",
-          "nav.solution":"Solution",
-          "nav.how":"How it works",
-          "nav.capabilities":"Capabilities",
-          "nav.privacy":"Privacy",
-          "nav.usecases":"Use cases",
-          "nav.faq":"FAQ",
-          "hero.kicker":"A system for integrity and continuity in digital life",
-          "hero.title":"Keep records clear, evidence-based, and under your control",
-          "hero.lead":"Local-first logging, structured context, integrity hash, and exportable packages. Works offline. No tracking.",
-          "hero.ctaPrimary":"See what it solves",
-          "hero.ctaSecondary":"Read privacy commitments",
-          "tool.title":"Local-first tool",
-          "tool.sub":"Stored in your browser. Export/import for backup. No automatic outbound sharing.",
-          "tool.actions.save":"Save entry",
-          "tool.actions.reset":"Reset form",
-          "tool.export.full":"Export full package",
-          "tool.export.min":"Export minimal package",
-          "tool.import.btn":"Import",
-          "tool.danger.clearAll":"Clear all local data"
-        },
-        ko: {
-          "header.tagline":"차분함. 명확함. 개인정보 존중.",
-          "nav.problem":"문제",
-          "nav.solution":"해결",
-          "nav.how":"작동 방식",
-          "nav.capabilities":"기능",
-          "nav.privacy":"프라이버시",
-          "nav.usecases":"사용 사례",
-          "nav.faq":"FAQ"
-        },
-        ja: {
-          "header.tagline":"落ち着いて。明確に。プライバシーを尊重。",
-          "nav.problem":"課題",
-          "nav.solution":"解決策",
-          "nav.how":"使い方",
-          "nav.capabilities":"機能",
-          "nav.privacy":"プライバシー",
-          "nav.usecases":"利用例",
-          "nav.faq":"FAQ"
-        }
-      };
-
-      function t(lang, key){
-        const pack = I18N[lang] || I18N.vi;
-        return (key in pack) ? pack[key] : (I18N.vi[key] || key);
-      }
-
-      function applyLang(lang){
-        const chosen = I18N[lang] ? lang : "vi";
-        document.documentElement.lang = chosen;
-        localStorage.setItem("lis_lang", chosen);
-
-        $$(".langBtn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === chosen)));
-
-        // Apply all data-i18n
-        $$("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          const val = t(chosen, key);
-          if (typeof val === "string") el.textContent = val;
-        });
-
-        // Some placeholders (optional)
-        if (chosen !== "vi"){
-          // keep placeholders stable; do not overwrite user input
-        }
-      }
-
-      // Init lang
-      const urlLang = new URL(location.href).searchParams.get("lang");
-      const savedLang = localStorage.getItem("lis_lang");
-      applyLang(urlLang || savedLang || "vi");
-
-      $$(".langBtn").forEach(btn => {
-        btn.addEventListener("click", () => applyLang(btn.dataset.lang));
-      });
-
-      // ===== Smooth scroll (already via CSS). Active nav highlight =====
-      const navAnchors = $$("#navlinks a");
-      const sections = navAnchors
-        .map(a => ({ a, id: a.getAttribute("href").slice(1), el: document.getElementById(a.getAttribute("href").slice(1)) }))
-        .filter(x => x.el);
-
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          if (!entry.isIntersecting) return;
-          const id = entry.target.id;
-          navAnchors.forEach(a => a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + id)));
-        });
-      }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
-
-      sections.forEach(s => io.observe(s.el));
-
-      // ===== IndexedDB =====
-      const DB_NAME = "life_integrity_systems";
-      const DB_VER = 1;
-      const STORE = "entries";
-
-      function openDB(){
-        return new Promise((resolve, reject)=>{
-          const req = indexedDB.open(DB_NAME, DB_VER);
-          req.onupgradeneeded = (ev) => {
-            const db = req.result;
-            if (!db.objectStoreNames.contains(STORE)){
-              const os = db.createObjectStore(STORE, { keyPath: "id" });
-              os.createIndex("createdAt", "createdAt", { unique:false });
-              os.createIndex("type", "type", { unique:false });
-              os.createIndex("sensitivity", "sensitivity", { unique:false });
-            }
-          };
-          req.onsuccess = () => resolve(req.result);
-          req.onerror = () => reject(req.error);
-        });
-      }
-
-      async function withStore(mode, fn){
-        const db = await openDB();
-        return new Promise((resolve, reject)=>{
-          const tx = db.transaction(STORE, mode);
-          const store = tx.objectStore(STORE);
-          let result;
-          tx.oncomplete = () => resolve(result);
-          tx.onerror = () => reject(tx.error);
-          tx.onabort = () => reject(tx.error);
-          try{
-            result = fn(store);
-          }catch(err){
-            reject(err);
-          }
-        });
-      }
-
-      function uid(){
-        const a = new Uint8Array(16);
-        crypto.getRandomValues(a);
-        return Array.from(a).map(b => b.toString(16).padStart(2,"0")).join("");
-      }
-
-      function safeTrim(s){ return String(s || "").trim(); }
-
-      function parseTags(s){
-        return safeTrim(s)
-          .split(",")
-          .map(x => x.trim())
-          .filter(Boolean)
-          .slice(0, 20);
-      }
-
-      function parseLinks(lines){
-        return String(lines || "")
-          .split("\n")
-          .map(x => x.trim())
-          .filter(Boolean)
-          .slice(0, 20);
-      }
-
-      function toISO(dtLocal){
-        if (!dtLocal) return null;
-        const d = new Date(dtLocal);
-        if (Number.isNaN(d.getTime())) return null;
-        return d.toISOString();
-      }
-
-      function escapeHtml(s){
-        return String(s || "")
-          .replaceAll("&","&amp;")
-          .replaceAll("<","&lt;")
-          .replaceAll(">","&gt;")
-          .replaceAll('"',"&quot;")
-          .replaceAll("'","&#039;");
-      }
-
-      // ===== CRUD =====
-      async function addEntry(entry){
-        return withStore("readwrite", (store)=> store.put(entry));
-      }
-      async function getAllEntries(){
-        return new Promise(async (resolve, reject)=>{
-          try{
-            const db = await openDB();
-            const tx = db.transaction(STORE, "readonly");
-            const store = tx.objectStore(STORE);
-            const req = store.getAll();
-            req.onsuccess = ()=> resolve(req.result || []);
-            req.onerror = ()=> reject(req.error);
-          }catch(e){ reject(e); }
-        });
-      }
-      async function deleteEntry(id){
-        return withStore("readwrite", (store)=> store.delete(id));
-      }
-      async function clearAll(){
-        return withStore("readwrite", (store)=> store.clear());
-      }
-
-      // ===== Render =====
-      function renderEntries(entries){
-        const container = $("#entries");
-        container.innerHTML = "";
-
-        $("#statCount").textContent = String(entries.length);
-
-        if (!entries.length){
-          const empty = document.createElement("div");
-          empty.className = "note";
-          empty.innerHTML = `<strong>${escapeHtml(t(document.documentElement.lang, "tool.libTitle"))}:</strong> <span style="color:var(--muted)">${escapeHtml(t(document.documentElement.lang, "sys.toast.noData"))}</span>`;
-          container.appendChild(empty);
-          return;
-        }
-
-        entries
-          .sort((a,b)=> (b.occurredAt || b.createdAt).localeCompare(a.occurredAt || a.createdAt))
-          .slice(0, 200)
-          .forEach(e => {
-            const card = document.createElement("div");
-            card.className = "miniCard";
-            const ts = new Date(e.occurredAt || e.createdAt);
-            const tsText = Number.isNaN(ts.getTime()) ? "" : ts.toLocaleString();
-            const tags = (e.tags || []).map(x => `<span class="pill">${escapeHtml(x)}</span>`).join(" ");
-            const links = (e.links || []).length
-              ? `<div style="margin-top:8px;"><strong>Links</strong><ul style="margin:6px 0 0 0; padding-left:18px; color:var(--muted)">${e.links.map(u=>`<li><a href="${escapeHtml(u)}" target="_blank" rel="noreferrer noopener">${escapeHtml(u)}</a></li>`).join("")}</ul></div>`
-              : "";
-
-            card.innerHTML = `
-              <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;">
-                <div style="min-width:240px;">
-                  <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
-                    <strong style="font-size:1.02rem;">${escapeHtml(e.title)}</strong>
-                    <span class="pill">${escapeHtml(e.type)}</span>
-                    <span class="pill">${escapeHtml(e.sensitivity)}</span>
-                  </div>
-                  <div style="color:var(--muted); margin-top:6px;">
-                    <span style="font-family:var(--mono); font-size:0.9rem;">${escapeHtml(e.id)}</span>
-                    <span> · </span>
-                    <span>${escapeHtml(tsText)}</span>
-                    ${e.source ? `<span> · </span><span>${escapeHtml(e.source)}</span>` : ""}
-                  </div>
-                </div>
-                <div class="heroActions" style="margin-top:0;">
-                  <button class="btn" type="button" data-act="copy" data-id="${escapeHtml(e.id)}">Copy ID</button>
-                  <button class="btn" type="button" data-act="del" data-id="${escapeHtml(e.id)}" style="border-color:rgba(176,0,32,0.28); color:var(--danger);">Delete</button>
-                </div>
-              </div>
-
-              ${e.tags && e.tags.length ? `<div class="pillRow" style="margin-top:10px;">${tags}</div>` : ""}
-
-              ${e.fact ? `<div style="margin-top:10px;"><strong>Fact</strong><div style="color:var(--muted); white-space:pre-wrap; margin-top:6px;">${escapeHtml(e.fact)}</div></div>` : ""}
-              ${e.note ? `<div style="margin-top:10px;"><strong>Note</strong><div style="color:var(--muted); white-space:pre-wrap; margin-top:6px;">${escapeHtml(e.note)}</div></div>` : ""}
-              ${e.next ? `<div style="margin-top:10px;"><strong>Next</strong><div style="color:var(--muted); white-space:pre-wrap; margin-top:6px;">${escapeHtml(e.next)}</div></div>` : ""}
-              ${links}
-            `;
-            container.appendChild(card);
-          });
-
-        // Bind actions
-        $$("[data-act='del']", container).forEach(btn => {
-          btn.addEventListener("click", async ()=>{
-            const id = btn.getAttribute("data-id");
-            await deleteEntry(id);
-            await refresh();
-          });
-        });
-        $$("[data-act='copy']", container).forEach(btn => {
-          btn.addEventListener("click", async ()=>{
-            const id = btn.getAttribute("data-id");
-            try{
-              await navigator.clipboard.writeText(id);
-            }catch(e){
-              // ignore
-            }
-          });
-        });
-      }
-
-      function filterEntries(entries){
-        const q = safeTrim($("#qSearch").value).toLowerCase();
-        const type = $("#qType").value;
-        const sens = $("#qSens").value;
-
-        return entries.filter(e => {
-          if (type && e.type !== type) return false;
-          if (sens && e.sensitivity !== sens) return false;
-          if (!q) return true;
-          const blob = [
-            e.id, e.title, e.type, e.sensitivity, e.source,
-            (e.tags || []).join(" "),
-            e.fact, e.note, e.next,
-            (e.links || []).join(" ")
-          ].join(" ").toLowerCase();
-          return blob.includes(q);
-        });
-      }
-
-      async function refresh(){
-        const all = await getAllEntries();
-        const filtered = filterEntries(all);
-        renderEntries(filtered);
-        hideExport();
-      }
-
-      // ===== Export / Import =====
-      function buildPackage(entries, mode){
-        const now = new Date().toISOString();
-        const base = {
-          schema: "life_integrity_systems.v1",
-          exportedAt: now,
-          mode: mode,
-          count: entries.length,
-          entries: []
-        };
-
-        if (mode === "minimal"){
-          base.entries = entries.map(e => ({
-            id: e.id,
-            title: e.title,
-            type: e.type,
-            sensitivity: e.sensitivity,
-            occurredAt: e.occurredAt || null,
-            createdAt: e.createdAt,
-            source: e.source || "",
-            tags: e.tags || [],
-            fact: e.fact || "",
-            links: e.links || []
-          }));
-        }else{
-          base.entries = entries;
-        }
-        return base;
-      }
-
-      async function sha256Hex(text){
-        const enc = new TextEncoder();
-        const data = enc.encode(text);
-        const digest = await crypto.subtle.digest("SHA-256", data);
-        const arr = Array.from(new Uint8Array(digest));
-        return arr.map(b => b.toString(16).padStart(2, "0")).join("");
-      }
-
-      function hideExport(){
-        $("#exportBox").style.display = "none";
-        $("#exportHash").textContent = "";
-        $("#btnDownload").removeAttribute("href");
-      }
-
-      async function doExport(mode){
-        const all = await getAllEntries();
-        if (!all.length){
-          toast("#importMsg", t(document.documentElement.lang, "sys.toast.noData"), "warn");
-          return;
-        }
-
-        const payload = buildPackage(all, mode);
-        const json = JSON.stringify(payload, null, 2);
-        const hash = await sha256Hex(json);
-
-        const blob = new Blob([json], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const fileName = `life-integrity-${mode}-${new Date().toISOString().slice(0,10)}.json`;
-
-        $("#exportHash").textContent = hash;
-        $("#btnDownload").href = url;
-        $("#btnDownload").download = fileName;
-        $("#exportBox").style.display = "block";
-
-        $("#btnCopyHash").onclick = async () => {
-          try{
-            await navigator.clipboard.writeText(hash);
-            toast("#importMsg", t(document.documentElement.lang, "sys.toast.hashCopied"), "good");
-          }catch(e){
-            // fallback: select via prompt
-            prompt("SHA-256", hash);
-          }
-        };
-      }
-
-      function validatePackage(obj){
-        if (!obj || typeof obj !== "object") return false;
-        if (obj.schema !== "life_integrity_systems.v1") return false;
-        if (!Array.isArray(obj.entries)) return false;
-        if (obj.entries.length > 5000) return false;
-        for (const e of obj.entries){
-          if (!e || typeof e !== "object") return false;
-          if (typeof e.id !== "string" || e.id.length < 8) return false;
-          if (typeof e.title !== "string") return false;
-          if (typeof e.type !== "string") return false;
-          if (typeof e.sensitivity !== "string") return false;
-          if (typeof e.createdAt !== "string") return false;
-          if (e.tags && !Array.isArray(e.tags)) return false;
-          if (e.links && !Array.isArray(e.links)) return false;
-        }
-        return true;
-      }
-
-      async function doImport(){
-        const file = $("#importFile").files && $("#importFile").files[0];
-        if (!file){
-          toast("#importMsg", t(document.documentElement.lang, "sys.toast.importSelect"), "warn");
-          return;
-        }
-        if (file.size > 20 * 1024 * 1024){
-          toast("#importMsg", t(document.documentElement.lang, "sys.toast.importFailed"), "warn");
-          return;
-        }
-
-        try{
-          const text = await file.text();
-          const obj = JSON.parse(text);
-          if (!validatePackage(obj)) throw new Error("bad schema");
-
-          const mode = $("#importMode").value;
-          if (mode === "replace"){
-            const ok = confirm(t(document.documentElement.lang, "sys.toast.confirmClear"));
-            if (!ok) return;
-            await clearAll();
-          }
-
-          // merge by id
-          for (const e of obj.entries){
-            const entry = {
-              id: String(e.id),
-              title: String(e.title).slice(0,140),
-              type: String(e.type).slice(0,24),
-              sensitivity: String(e.sensitivity).slice(0,24),
-              occurredAt: e.occurredAt ? String(e.occurredAt) : null,
-              createdAt: String(e.createdAt),
-              source: e.source ? String(e.source).slice(0,160) : "",
-              tags: Array.isArray(e.tags) ? e.tags.map(x => String(x).slice(0,40)).slice(0,20) : [],
-              fact: e.fact ? String(e.fact).slice(0,6000) : "",
-              note: e.note ? String(e.note).slice(0,4000) : "",
-              next: e.next ? String(e.next).slice(0,2000) : "",
-              links: Array.isArray(e.links) ? e.links.map(x => String(x).slice(0,500)).slice(0,20) : []
-            };
-            await addEntry(entry);
-          }
-
-          toast("#importMsg", t(document.documentElement.lang, "sys.toast.importOk"), "good");
-          $("#importFile").value = "";
-          await refresh();
-        }catch(err){
-          toast("#importMsg", t(document.documentElement.lang, "sys.toast.importFailed"), "warn");
-        }
-      }
-
-      // ===== Toast helper (reuse .note box) =====
-      function toast(sel, text, tone){
-        const el = $(sel);
-        if (!el) return;
-        el.style.display = "block";
-        el.style.borderStyle = "solid";
-        el.style.borderWidth = "1px";
-        el.style.background = "rgba(255,255,255,0.86)";
-        el.style.color = "var(--muted)";
-        el.style.marginTop = "10px";
-        el.textContent = text;
-
-        if (tone === "good"){
-          el.style.borderColor = "rgba(11,122,59,0.35)";
-        }else if (tone === "warn"){
-          el.style.borderColor = "rgba(138,91,0,0.35)";
-        }else{
-          el.style.borderColor = "rgba(230,232,235,1)";
-        }
-      }
-
-      // ===== Form submit =====
-      $("#entryForm").addEventListener("submit", async (ev)=>{
-        ev.preventDefault();
-        const lang = document.documentElement.lang || "vi";
-        const title = safeTrim($("#fTitle").value);
-        if (!title){
-          $("#formMsg").style.display = "block";
-          $("#formMsg").textContent = t(lang, "sys.toast.missingTitle");
-          return;
-        }
-
-        const entry = {
-          id: uid(),
-          title: title.slice(0,140),
-          type: $("#fType").value || "event",
-          sensitivity: $("#fSensitivity").value || "low",
-          occurredAt: toISO($("#fOccurredAt").value),
-          createdAt: new Date().toISOString(),
-          source: safeTrim($("#fSource").value).slice(0,160),
-          tags: parseTags($("#fTags").value),
-          fact: String($("#fFact").value || "").slice(0,6000),
-          note: String($("#fNote").value || "").slice(0,4000),
-          next: String($("#fNext").value || "").slice(0,2000),
-          links: parseLinks($("#fLinks").value)
-        };
-
-        try{
-          await addEntry(entry);
-          $("#formMsg").style.display = "block";
-          $("#formMsg").textContent = t(lang, "sys.toast.saved");
-          $("#formMsg").style.borderStyle = "solid";
-          $("#formMsg").style.borderWidth = "1px";
-          $("#formMsg").style.borderColor = "rgba(11,122,59,0.35)";
-          setTimeout(()=> { $("#formMsg").style.display = "none"; }, 2500);
-          $("#entryForm").reset();
-          await refresh();
-        }catch(e){
-          $("#formMsg").style.display = "block";
-          $("#formMsg").textContent = t(lang, "sys.toast.savedFailed");
-          $("#formMsg").style.borderStyle = "solid";
-          $("#formMsg").style.borderWidth = "1px";
-          $("#formMsg").style.borderColor = "rgba(176,0,32,0.35)";
-        }
-      });
-
-      $("#btnReset").addEventListener("click", ()=>{
-        $("#entryForm").reset();
-        $("#formMsg").style.display = "none";
-      });
-
-      $("#btnRefresh").addEventListener("click", refresh);
-      $("#qSearch").addEventListener("input", refresh);
-      $("#qType").addEventListener("change", refresh);
-      $("#qSens").addEventListener("change", refresh);
-
-      $("#btnExportFull").addEventListener("click", ()=> doExport("full"));
-      $("#btnExportMinimal").addEventListener("click", ()=> doExport("minimal"));
-      $("#btnImport").addEventListener("click", doImport);
-
-      $("#btnClearAll").addEventListener("click", async ()=>{
-        const lang = document.documentElement.lang || "vi";
-        const ok = confirm(t(lang, "sys.toast.confirmClear"));
-        if (!ok) return;
-        await clearAll();
-        toast("#importMsg", t(lang, "sys.toast.clearedAll"), "good");
-        hideExport();
-        await refresh();
-      });
-
-      // Initial load
-      refresh();
-
-    })();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
